@@ -7,24 +7,24 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    title: "Project One",
-    year: 2023,
+    title: "Modern Tennis & Pickeball",
+    year: 2025,
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam veritatis dolorem rem praesentium dicta labore, at laudantium quisquam.",
-    url: "https://example.com/",
+      "Modern Pickball and Tennis Programs for children and adults.",
+    url: "https://modernpickle.com/",
   },
   {
-    title: "Project Two",
-    year: 2022,
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam veritatis dolorem rem praesentium dicta labore, at laudantium quisquam.",
-    url: "https://example.com/",
-  },
-  {
-    title: "Project Three",
+    title: "thien.me",
     year: 2021,
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam veritatis dolorem rem praesentium dicta labore, at laudantium quisquam.",
-    url: "https://example.com/",
+      "overengineered portfoliio built with nextjs, tailwaindcss, supabase, notion, spotify, and more.",
+    url: "https://thien.me/",
+  },
+  {
+    title: "Tennis Social",
+    year: 2021,
+    description:
+      "Tennis Social networking app. Work in progress.",
+    url: "https://tennis.so/",
   },
 ];

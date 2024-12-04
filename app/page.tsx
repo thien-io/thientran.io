@@ -5,14 +5,10 @@ export default function Page() {
   return (
     <section>
 
-
-      <h1 className="mb-8 text-2xl font-medium tracking-tight">
-        tennis coach. web designer.
-      </h1>
-
       <div className="prose prose-neutral dark:prose-invert">
         <p>
-          You've discovered my slice of the internet. 
+      Hello, I'm Thien, a tennis coach and web developer from Connecticut. 
+
         </p>
         
       </div>

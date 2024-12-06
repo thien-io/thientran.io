@@ -8,7 +8,8 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import Footer from "./components/footer";
 import { ThemeProvider } from "./components/theme-switch";
 import { metaData } from "./config";
-
+import DotPattern from "./components/dotpattern";
+import { cn } from "./lib/utils";
 export const metadata: Metadata = {
   metadataBase: new URL(metaData.baseUrl),
   title: {
@@ -82,6 +83,16 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <main className="flex-auto min-w-0 mt-2 md:mt-6 flex flex-col px-6 sm:px-4 md:px-0 max-w-[640px] w-full">
+          <DotPattern
+        width={15}
+        height={15}
+        cx={1}
+        cy={1}
+        cr={1}
+        className={cn(
+          "opacity-30 dark:opacity-10",
+        )}
+      />
             <Navbar />
             {children}
             <Footer />

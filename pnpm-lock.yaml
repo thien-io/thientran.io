@@ -23,6 +23,9 @@ importers:
       '@vercel/speed-insights':
         specifier: ^1.0.12
         version: 1.0.12(next@14.2.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
+      clsx:
+        specifier: ^2.1.1
+        version: 2.1.1
       feed:
         specifier: ^4.2.2
         version: 4.2.2
@@ -68,6 +71,9 @@ importers:
       sugar-high:
         specifier: ^0.7.0
         version: 0.7.0
+      tailwind-merge:
+        specifier: ^2.5.5
+        version: 2.5.5
       typescript:
         specifier: 5.5.4
         version: 5.5.4
@@ -1187,6 +1193,9 @@ packages:
     resolution: {integrity: sha512-QtxqyclFeAsxEUeZIYmsaQ0UjimSq1RZ9Un7I68/0ClKK/U3LoyQunwkQfJZr2fc22DfIXLNDc2wFyTEikCUpg==}
     peerDependencies:
       react: ^16.11.0 || ^17.0.0 || ^18.0.0
+
+  tailwind-merge@2.5.5:
+    resolution: {integrity: sha512-0LXunzzAZzo0tEPxV3I297ffKZPlKDrjj7NXphC8V5ak9yHC5zRmxnOe2m/Rd/7ivsOMJe3JZ2JVocoDdQTRBA==}
 
   tailwindcss@3.4.10:
     resolution: {integrity: sha512-KWZkVPm7yJRhdu4SRSl9d4AK2wM3a50UsvgHZO7xY77NQr2V+fIrEuoDGQcbvswWvFGbS2f6e+jC/6WJm1Dl0w==}
@@ -2650,6 +2659,8 @@ snapshots:
       client-only: 0.0.1
       react: 18.3.1
       use-sync-external-store: 1.2.2(react@18.3.1)
+
+  tailwind-merge@2.5.5: {}
 
   tailwindcss@3.4.10:
     dependencies:

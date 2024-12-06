@@ -12,6 +12,6 @@ export const socialLinks = {
   github: "https://github.com/thien-io",
   discord: "https://discord.gg/thien-io",
   instagram: "https://www.instagram.com/thien.io",
-  linkedin: "https://www.linkedin.com/thien-io",
+  linkedin: "https://www.linkedin.com/in/thienio/",
   email: "mailto:hello@thientran.io",
 };

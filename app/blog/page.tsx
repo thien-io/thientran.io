@@ -1,17 +1,22 @@
 import Link from "next/link";
 import { formatDate, getBlogPosts } from "app/lib/posts";
+import BlurFade from "app/components/ui/blur-fade";
 
 export const metadata = {
   title: "Blog",
   description: "Thien's ",
 };
 
+const BLUR_FADE_DELAY = 0.09;
+
 export default function BlogPosts() {
   let allBlogs = getBlogPosts();
 
   return (
     <section>
-      <h1 className="mb-8 text-2xl font-medium tracking-tight">Blog</h1>
+      <BlurFade delay={BLUR_FADE_DELAY}>
+        <h1 className="font-medium text-2xl mb-8 tracking-tighter">blog</h1>
+      </BlurFade>
       <div>
         {allBlogs
           .sort((a, b) => {
@@ -24,6 +29,7 @@ export default function BlogPosts() {
             return 1;
           })
           .map((post) => (
+            <BlurFade delay={BLUR_FADE_DELAY * 4 + 0.05} >
             <Link
               key={post.slug}
               className="flex flex-col space-y-1 mb-4 transition-opacity duration-200 hover:opacity-80"
@@ -38,6 +44,7 @@ export default function BlogPosts() {
                 </p>
               </div>
             </Link>
+            </BlurFade>
           ))}
       </div>
     </section>

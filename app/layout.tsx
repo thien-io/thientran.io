@@ -111,11 +111,11 @@ export default function RootLayout({
                   <Breadcrumb>
                     <BreadcrumbList>
                       <BreadcrumbItem className='block'>
-                        <BreadcrumbLink href='#'>thien</BreadcrumbLink>
+                        <BreadcrumbLink href='/'>thien</BreadcrumbLink>
                       </BreadcrumbItem>
                       <BreadcrumbSeparator className='block' />
                       <BreadcrumbItem className='block'>
-                        <BreadcrumbLink href='#'>thientran.io</BreadcrumbLink>
+                        <BreadcrumbLink href='/'>thientran.io</BreadcrumbLink>
                       </BreadcrumbItem>
                       <BreadcrumbSeparator className='block' />
                       <BreadcrumbItem>
@@ -130,7 +130,6 @@ export default function RootLayout({
                 </div>
               </SidebarInset>
             </SidebarProvider>
-
 
             <Analytics />
             <SpeedInsights />

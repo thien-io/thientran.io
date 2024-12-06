@@ -18,6 +18,7 @@ import { NavMain } from "@/components/nav-main"
 import { NavProjects } from "@/components/nav-projects"
 import { NavUser } from "@/components/nav-user"
 import { TeamSwitcher } from "@/components/team-switcher"
+import Link from "next/link"
 import {
   Sidebar,
   SidebarContent,
@@ -160,7 +161,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
-        <div>thien</div>
+        <Link href="/">thien</Link>
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />

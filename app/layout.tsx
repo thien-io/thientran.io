@@ -9,10 +9,24 @@ import Footer from "./components/footer";
 import { ThemeProvider } from "./components/theme-switch";
 import { metaData } from "./config";
 import DotPattern from "./components/dotpattern";
-import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
+
 import { ThemeSwitch } from './components/theme-switch';
 import { Command } from 'lucide-react';
-import { AppSidebar } from './components/app-sidebar';
+import { AppSidebar } from '@/components/app-sidebar';
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from '@/components/ui/breadcrumb';
+import { Separator } from '@/components/ui/separator';
+import {
+  SidebarInset,
+  SidebarProvider,
+  SidebarTrigger,
+} from '@/components/ui/sidebar';
 import { Dock, DockIcon } from './components/ui/dock';
 import { cn } from './lib/utils';
 export const metadata: Metadata = {
@@ -80,27 +94,47 @@ export default function RootLayout({
           title='JSON Feed'
         />
       </head>
-      <body className='antialiased flex flex-col min-h-screen items-center justify-center mx-auto mt-2 lg:mt-8 lg:mb-40'>
+      <body className='flex h-screen items-center justify-center flex-col'>
         <ThemeProvider
           attribute='class'
           defaultTheme='system'
           enableSystem
           disableTransitionOnChange
         >
-          <SidebarProvider>
-            <AppSidebar />
-            <main className='flex-auto min-w-0 mt-2 md:mt-6 flex flex-col px-6 sm:px-4 md:px-0 max-w-[640px] w-full'>
-              <div className='flex content-center justify-end'>
-                <ThemeSwitch />
-                <SidebarTrigger className='ml-4' />
-              </div>
-              <div className='mt-10'>{children}</div>
+          <main className='flex flex-1 flex-col gap-4 p-4 pt-0 w-full h-screen'>
+            <SidebarProvider>
+              <AppSidebar />
+              <SidebarInset>
+                <header className='flex h-16 shrink-0 items-center gap-2 border-b px-4'>
+                  <SidebarTrigger className='-ml-1' />
+                  <Separator orientation='vertical' className='mr-2 h-4' />
+                  <Breadcrumb>
+                    <BreadcrumbList>
+                      <BreadcrumbItem className='block'>
+                        <BreadcrumbLink href='#'>thien</BreadcrumbLink>
+                      </BreadcrumbItem>
+                      <BreadcrumbSeparator className='block' />
+                      <BreadcrumbItem className='block'>
+                        <BreadcrumbLink href='#'>thientran.io</BreadcrumbLink>
+                      </BreadcrumbItem>
+                      <BreadcrumbSeparator className='block' />
+                      <BreadcrumbItem>
+                        <BreadcrumbPage>home</BreadcrumbPage>
+                      </BreadcrumbItem>
+                    </BreadcrumbList>
+                  </Breadcrumb>
+                </header>
+                <div className='flex flex-1 flex-col gap-4 p-4'>
+                  <div className='mt-10'>{children}</div>
+                  <Footer />
+                </div>
+              </SidebarInset>
+            </SidebarProvider>
 
-              <Footer />
-              <Analytics />
-              <SpeedInsights />
-            </main>
-          </SidebarProvider>
+
+            <Analytics />
+            <SpeedInsights />
+          </main>
         </ThemeProvider>
       </body>
     </html>

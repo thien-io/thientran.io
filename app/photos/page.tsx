@@ -1,6 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
-import { ImageGrid } from "app/components/image-grid";
+import { ImageGrid } from "@/components/image-grid";
 
 export const metadata: Metadata = {
   title: "Photos",
@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function Photos() {
   return (
-    <section>
+    <section className="mb-20">
       <h1 className="mb-8 text-2xl font-medium tracking-tight">Photos</h1>
       <ImageGrid
         columns={3}

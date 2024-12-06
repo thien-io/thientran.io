@@ -40,7 +40,7 @@ function SocialLinks() {
 
 export default function Footer() {
   return (
-    <small className="  text-[#1C1C1C] dark:text-[#D4D4D4] mt-auto mb-5">
+    <div className="  mt-auto mb-10">
       <time>© {YEAR}</time>{" "}
       <a
         className="no-underline"
@@ -50,15 +50,8 @@ export default function Footer() {
       >
         {metaData.title}
       </a>
-      <style jsx>{`
-        @media screen and (max-width: 480px) {
-          article {
-            padding-top: 2rem;
-            padding-bottom: 4rem;
-          }
-        }
-      `}</style>
+
       <SocialLinks />
-    </small>
+    </div>
   );
 }

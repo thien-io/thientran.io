@@ -72,99 +72,88 @@ const data = {
       isActive: true,
       items: [
         {
-          title: "History",
-          url: "#",
+          title: "Now",
+          url: "/now",
         },
         {
-          title: "Starred",
-          url: "#",
+          title: "Work",
+          url: "/work",
         },
         {
-          title: "Settings",
-          url: "#",
+          title: "Education",
+          url: "/edu",
         },
       ],
     },
     {
       title: "Blog",
-      url: "#",
+      url: "/blog",
       icon: Bot,
       items: [
         {
-          title: "Genesis",
-          url: "#",
+          title: "Tennis",
+          url: "/blog",
         },
         {
-          title: "Explorer",
-          url: "#",
+          title: "Development",
+          url: "/blog",
         },
         {
-          title: "Quantum",
-          url: "#",
+          title: "Design",
+          url: "/blog",
         },
       ],
     },
     {
-      title: "Documentation",
-      url: "#",
+      title: "Hobbies",
+      url: "/hobbies",
       icon: BookOpen,
       items: [
         {
-          title: "Introduction",
-          url: "#",
+          title: "Books",
+          url: "/books",
         },
         {
-          title: "Get Started",
-          url: "#",
+          title: "Movies",
+          url: "/movies",
         },
         {
-          title: "Tutorials",
-          url: "#",
-        },
-        {
-          title: "Changelog",
-          url: "#",
+          title: "Music",
+          url: "/music",
         },
       ],
     },
     {
-      title: "Settings",
-      url: "#",
+      title: "Projects",
+      url: "/projects",
       icon: Settings2,
       items: [
         {
-          title: "General",
-          url: "#",
+          title: "thien.me",
+          url: "https://thien.me",
         },
         {
-          title: "Team",
-          url: "#",
+          title: "Modern Pickle",
+          url: "https://modernpickle.com",
         },
-        {
-          title: "Billing",
-          url: "#",
-        },
-        {
-          title: "Limits",
-          url: "#",
-        },
+
       ],
     },
   ],
   projects: [
     {
-      name: "Design Engineering",
-      url: "#",
+      name: "Blog",
+      url: "/blog",
       icon: Frame,
     },
     {
-      name: "Sales & Marketing",
-      url: "#",
+      name: "Photos",
+      url: "/photos",
       icon: PieChart,
     },
     {
-      name: "Travel",
-      url: "#",
+      name: "About",
+      url: "/about",
       icon: Map,
     },
   ],
@@ -218,8 +207,8 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <Link href="/">thien</Link>
       </SidebarHeader>
       <SidebarContent>
-        <NavMain items={data.navMain} />
         <NavProjects projects={data.projects} />
+        <NavMain items={data.navMain} />
         <SidebarGroup>
           <SidebarGroupLabel>Changes</SidebarGroupLabel>
           <SidebarGroupContent>

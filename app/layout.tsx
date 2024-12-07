@@ -1,15 +1,15 @@
-import "./global.css";
-import type { Metadata } from "next";
-import { GeistSans } from "geist/font/sans";
-import { GeistMono } from "geist/font/mono";
-import { Navbar } from "./components/nav";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import Footer from "./components/footer";
-import { ThemeProvider } from "./components/theme-switch";
-import { metaData } from "./config";
-import DotPattern from "./components/dotpattern";
-
+import './global.css';
+import type { Metadata } from 'next';
+import { GeistSans } from 'geist/font/sans';
+import { GeistMono } from 'geist/font/mono';
+import { Navbar } from './components/nav';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import Footer from './components/footer';
+import { ThemeProvider } from './components/theme-switch';
+import { metaData } from './config';
+import DotPattern from './components/dotpattern';
+import Pathname from './components/pathname';
 import { ThemeSwitch } from './components/theme-switch';
 import { Command } from 'lucide-react';
 import { AppSidebar } from '@/components/app-sidebar';
@@ -29,6 +29,8 @@ import {
 } from '@/components/ui/sidebar';
 import { Dock, DockIcon } from './components/ui/dock';
 import { cn } from './lib/utils';
+import { usePathname } from 'next/navigation';
+
 export const metadata: Metadata = {
   metadataBase: new URL(metaData.baseUrl),
   title: {
@@ -119,7 +121,9 @@ export default function RootLayout({
                       </BreadcrumbItem>
                       <BreadcrumbSeparator className='block' />
                       <BreadcrumbItem>
-                        <BreadcrumbPage>home</BreadcrumbPage>
+                        <BreadcrumbPage>
+                          <Pathname />
+                        </BreadcrumbPage>
                       </BreadcrumbItem>
                     </BreadcrumbList>
                   </Breadcrumb>

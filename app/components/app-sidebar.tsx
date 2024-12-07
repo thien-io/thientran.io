@@ -12,8 +12,22 @@ import {
   PieChart,
   Settings2,
   SquareTerminal,
-  ChevronRight, File, Folder
-} from "lucide-react"
+  ChevronRight,
+  File,
+  Folder,
+  Forward,
+  MoreHorizontal,
+  Tent,
+  Notebook,
+  Image,
+  BookType,FileType,Type,ClipboardType,
+  Mailbox,
+  Origami,
+  Bone,
+  Dog,
+  Rocket,
+  Trash2,
+} from 'lucide-react';
 import {
   Collapsible,
   CollapsibleContent,
@@ -42,169 +56,169 @@ import {
 
 // This is sample data.
 const data = {
+  pages: [
+    {
+      name: 'Blog',
+      url: '/blog',
+      icon: Notebook,
+    },
+    {
+      name: 'Photos',
+      url: '/photos',
+      icon: Image,
+    },
+    {
+      name: 'About',
+      url: '/about',
+      icon: BookType,
+    },
+  ],
   user: {
-    name: "thien tran",
-    email: "hello@thientran.io",
-    avatar: "/avatars/shadcn.jpg",
+    name: 'thien tran',
+    email: 'hello@thientran.io',
+    avatar: '/avatars/shadcn.jpg',
   },
   teams: [
     {
-      name: "Acme Inc",
+      name: 'Acme Inc',
       logo: GalleryVerticalEnd,
-      plan: "Enterprise",
+      plan: 'Enterprise',
     },
     {
-      name: "Acme Corp.",
+      name: 'Acme Corp.',
       logo: AudioWaveform,
-      plan: "Startup",
+      plan: 'Startup',
     },
     {
-      name: "Evil Corp.",
+      name: 'Evil Corp.',
       logo: Command,
-      plan: "Free",
+      plan: 'Free',
     },
   ],
   navMain: [
     {
-      title: "About",
-      url: "#",
+      title: 'About',
+      url: '#',
       icon: SquareTerminal,
       isActive: true,
       items: [
         {
-          title: "Now",
-          url: "/now",
+          title: 'Now',
+          url: '/now',
         },
         {
-          title: "Work",
-          url: "/work",
+          title: 'Work',
+          url: '/work',
         },
         {
-          title: "Education",
-          url: "/edu",
+          title: 'Education',
+          url: '/edu',
         },
       ],
     },
     {
-      title: "Blog",
-      url: "/blog",
+      title: 'Blog',
+      url: '/blog',
       icon: Bot,
       items: [
         {
-          title: "Tennis",
-          url: "/blog",
+          title: 'Tennis',
+          url: '/blog',
         },
         {
-          title: "Development",
-          url: "/blog",
+          title: 'Development',
+          url: '/blog',
         },
         {
-          title: "Design",
-          url: "/blog",
+          title: 'Design',
+          url: '/blog',
         },
       ],
     },
     {
-      title: "Hobbies",
-      url: "/hobbies",
+      title: 'Hobbies',
+      url: '/hobbies',
       icon: BookOpen,
       items: [
         {
-          title: "Books",
-          url: "/books",
+          title: 'Books',
+          url: '/books',
         },
         {
-          title: "Movies",
-          url: "/movies",
+          title: 'Movies',
+          url: '/movies',
         },
         {
-          title: "Music",
-          url: "/music",
+          title: 'Music',
+          url: '/music',
         },
       ],
     },
     {
-      title: "Projects",
-      url: "/projects",
+      title: 'Projects',
+      url: '/projects',
       icon: Settings2,
       items: [
         {
-          title: "thien.me",
-          url: "https://thien.me",
+          title: 'thien.me',
+          url: 'https://thien.me',
         },
         {
-          title: "Modern Pickle",
-          url: "https://modernpickle.com",
+          title: 'Modern Pickle',
+          url: 'https://modernpickle.com',
         },
-
       ],
     },
   ],
-  pages: [
-    {
-      name: "Blog",
-      url: "/blog",
-      icon: Frame,
-    },
-    {
-      name: "Photos",
-      url: "/photos",
-      icon: PieChart,
-    },
-    {
-      name: "About",
-      url: "/about",
-      icon: Map,
-    },
-  ],
+
   changes: [
     {
-      file: "README.md",
-      state: "M",
+      file: 'README.md',
+      state: 'M',
     },
     {
-      file: "api/hello/route.ts",
-      state: "U",
+      file: 'api/hello/route.ts',
+      state: 'U',
     },
     {
-      file: "app/layout.tsx",
-      state: "M",
+      file: 'app/layout.tsx',
+      state: 'M',
     },
   ],
   tree: [
     [
-      "app",
+      'app',
       [
-        "api",
-        ["hello", ["route.ts"]],
-        "page.tsx",
-        "layout.tsx",
-        ["blog", ["page.tsx"]],
+        'api',
+        ['hello', ['route.ts']],
+        'page.tsx',
+        'layout.tsx',
+        ['blog', ['page.tsx']],
       ],
     ],
     [
-      "components",
-      ["ui", "button.tsx", "card.tsx"],
-      "header.tsx",
-      "footer.tsx",
+      'components',
+      ['ui', 'button.tsx', 'card.tsx'],
+      'header.tsx',
+      'footer.tsx',
     ],
-    ["lib", ["util.ts"]],
-    ["public", "favicon.ico", "vercel.svg"],
-    ".eslintrc.json",
-    ".gitignore",
-    "next.config.js",
-    "tailwind.config.js",
-    "package.json",
-    "README.md",
+    ['lib', ['util.ts']],
+    ['public', 'favicon.ico', 'vercel.svg'],
+    '.eslintrc.json',
+    '.gitignore',
+    'next.config.js',
+    'tailwind.config.js',
+    'package.json',
+    'README.md',
   ],
-}
+};
 
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
-        <Link href="/">thien</Link>
+        <Link href="/" className="md:hidden items-center justify-center mt-3 ml-2 text-sm font-semibold">thien</Link>
       </SidebarHeader>
       <SidebarContent>
         <NavPages pages={data.pages} />

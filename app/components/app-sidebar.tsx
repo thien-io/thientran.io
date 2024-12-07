@@ -20,7 +20,7 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible"
 import { NavMain } from "@/components/nav-main"
-import { NavProjects } from "@/components/nav-projects"
+import { NavPages } from "@/components/nav-pages"
 import { NavUser } from "@/components/nav-user"
 import { TeamSwitcher } from "@/components/team-switcher"
 import Link from "next/link"
@@ -140,7 +140,7 @@ const data = {
       ],
     },
   ],
-  projects: [
+  pages: [
     {
       name: "Blog",
       url: "/blog",
@@ -207,7 +207,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <Link href="/">thien</Link>
       </SidebarHeader>
       <SidebarContent>
-        <NavProjects projects={data.projects} />
+        <NavPages pages={data.pages} />
         <NavMain items={data.navMain} />
         <SidebarGroup>
           <SidebarGroupLabel>Changes</SidebarGroupLabel>

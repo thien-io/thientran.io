@@ -218,6 +218,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
+
         <Link href="/" className="md:hidden items-center justify-center mt-3 ml-2 text-sm font-semibold">thien</Link>
       </SidebarHeader>
       <SidebarContent>

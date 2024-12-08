@@ -3,8 +3,10 @@ import * as React from "react";
 import { useTheme } from "next-themes";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import type { ThemeProviderProps } from "next-themes/dist/types";
-import { FaCircleHalfStroke } from "react-icons/fa6";
+
 import { Button } from './ui/button';
+import useHasMounted from '@/lib/hooks/useHasMounted'
+import { Sun, Moon } from "lucide-react";
 
 const storageKey = 'theme-preference';
 
@@ -22,10 +24,12 @@ export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
 }
 
 export const ThemeSwitch: React.FC = () => {
-  const { setTheme } = useTheme();
+  const { setTheme, resolvedTheme } = useTheme();
+  const hasMounted = useHasMounted()
   const [mounted, setMounted] = React.useState(false);
   const [currentTheme, setCurrentTheme] = React.useState<'light' | 'dark'>('light');
-
+  const isDarkTheme =
+    hasMounted && (resolvedTheme === 'dark' || resolvedTheme === 'system')
   const getColorPreference = (): 'light' | 'dark' => {
     if (typeof window !== 'undefined') {
       const storedPreference = localStorage.getItem(storageKey);
@@ -68,19 +72,25 @@ export const ThemeSwitch: React.FC = () => {
   };
 
   if (!mounted) {
-    return <FaCircleHalfStroke className='' aria-hidden='true' />;
+    return <Sun className='' aria-hidden='true' />;
   }
 
   return (
-    <Button
-      id='theme-toggle'
-      aria-label={`${currentTheme} mode`}
+    <button
+      className=" flex h-8 w-8 cursor-pointer items-center justify-center rounded-md bg-zinc-300  ring-neutral-400 transition duration-200 ease-in-out hover:bg-zinc-300 hover:ring-2 dark:bg-zinc-700 dark:hover:bg-zinc-800 "
+      type="button"
+      aria-label={`switch to ${isDarkTheme ? 'light' : 'dark'} mode`}
       onClick={toggleTheme}
-      variant='ghost'
-      size='icon'
-      className="h-8 w-8"
     >
-      <FaCircleHalfStroke />
-    </Button>
+      {hasMounted && (
+        <>
+          {isDarkTheme ? (
+            <Sun className="h-4 w-4" />
+          ) : (
+            <Moon className="h-4 w-4" />
+          )}
+        </>
+      )}
+    </button>
   );
 };

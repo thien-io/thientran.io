@@ -53,6 +53,7 @@ import {
   SidebarMenuSub,
   SidebarRail,
 } from "@/components/ui/sidebar"
+import { ThemeSwitch } from './theme-switch';
 
 // This is sample data.
 const data = {
@@ -76,15 +77,18 @@ const data = {
       name: 'Dashboard',
       url: '/dashboard',
       icon: Rocket,
-    },    {
+    },
+    {
       name: 'Projects',
       url: '/projects',
       icon: Type,
-    },    {
+    },
+    {
       name: 'Movies',
       url: '/movies',
       icon: BookType,
-    },    {
+    },
+    {
       name: 'Music',
       url: '/music',
       icon: Rocket,
@@ -93,7 +97,7 @@ const data = {
   user: {
     name: 'thien tran',
     email: 'hello@thientran.io',
-    avatar: '/avatars/shadcn.jpg',
+    avatar: '/',
   },
   teams: [
     {
@@ -233,10 +237,14 @@ const data = {
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
-    <Sidebar collapsible="icon" {...props}>
+    <Sidebar collapsible='icon' {...props}>
       <SidebarHeader>
-
-        <Link href="/" className="md:hidden items-center justify-center mt-3 ml-2 text-sm font-semibold">thien</Link>
+        <Link
+          href='/'
+          className='md:hidden items-center justify-center mt-3 ml-2 text-sm font-semibold'
+        >
+          thien
+        </Link>
       </SidebarHeader>
       <SidebarContent>
         <NavPages pages={data.pages} />
@@ -269,11 +277,14 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         </SidebarGroup>
       </SidebarContent>
       <SidebarFooter>
+        <div className="ml-2 flex ">
+          <ThemeSwitch /><p className="text-xs justify-center items-center content-center ml-2">theme</p>
+        </div>
         <NavUser user={data.user} />
       </SidebarFooter>
       <SidebarRail />
     </Sidebar>
-  )
+  );
 }
 
 function Tree({ item }: { item: string | any[] }) {

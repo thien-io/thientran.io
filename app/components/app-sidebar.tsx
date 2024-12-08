@@ -93,6 +93,24 @@ const data = {
       url: '/music',
       icon: Rocket,
     },
+    {
+      name: 'Quotes',
+      url: '/quotes',
+      icon: Rocket,
+    },
+    {
+      name: 'Game',
+      url: '/game',
+      icon: Rocket,
+    },    {
+      name: 'Now',
+      url: '/now',
+      icon: Rocket,
+    },    {
+      name: 'Contact',
+      url: '/contact',
+      icon: Rocket,
+    },
   ],
   user: {
     name: 'thien tran',

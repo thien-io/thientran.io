@@ -116,10 +116,6 @@ export default function RootLayout({
                         <BreadcrumbLink href='/'>thien</BreadcrumbLink>
                       </BreadcrumbItem>
                       <BreadcrumbSeparator className='block' />
-                      <BreadcrumbItem className='block'>
-                        <BreadcrumbLink href='/'>thientran.io</BreadcrumbLink>
-                      </BreadcrumbItem>
-                      <BreadcrumbSeparator className='block' />
                       <BreadcrumbItem>
                         <BreadcrumbPage>
                           <Pathname />

@@ -72,6 +72,23 @@ const data = {
       url: '/about',
       icon: BookType,
     },
+    {
+      name: 'Dashboard',
+      url: '/dashboard',
+      icon: Rocket,
+    },    {
+      name: 'Projects',
+      url: '/projects',
+      icon: Type,
+    },    {
+      name: 'Movies',
+      url: '/movies',
+      icon: BookType,
+    },    {
+      name: 'Music',
+      url: '/music',
+      icon: Rocket,
+    },
   ],
   user: {
     name: 'thien tran',

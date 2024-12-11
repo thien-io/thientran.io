@@ -7,6 +7,11 @@ import {
   CreditCard,
   LogOut,
   Sparkles,
+  Twitter,
+  Github,
+  Instagram,
+  Linkedin,
+  Contact,
 } from 'lucide-react';
 import { ThemeSwitch } from './theme-switch';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -79,16 +84,20 @@ export function NavUser({
 
             <DropdownMenuGroup>
               <DropdownMenuItem>
-                <Sparkles />
+                <Twitter />
                 X (Twitter)
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <BadgeCheck />
+                <Github />
                 Github
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <CreditCard />
+                <Instagram />
                 Instagram
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <Linkedin />
+                LinkedIn
               </DropdownMenuItem>
               <DropdownMenuItem>
                 <Bell />

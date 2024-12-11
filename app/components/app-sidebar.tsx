@@ -20,13 +20,36 @@ import {
   Tent,
   Notebook,
   Image,
-  BookType,FileType,Type,ClipboardType,
+  BookType,
+  FileType,
+  Type,
+  ClipboardType,
   Mailbox,
   Origami,
   Bone,
   Dog,
   Rocket,
   Trash2,
+  FileUser,
+  Contact,
+  BookUser,
+  Eclipse,
+  CodeXml,
+  Construction,
+  Signpost,
+  Donut,
+  Feather,
+  Ghost,
+  Sword,
+  Swords,
+  Flower,
+  Milestone,
+  LampDesk,
+  Sofa,
+  Popcorn,
+  Award,
+  Quote,
+  Music4,
 } from 'lucide-react';
 import {
   Collapsible,
@@ -59,19 +82,24 @@ import { ThemeSwitch } from './theme-switch';
 const data = {
   pages: [
     {
+      name: 'About',
+      url: '/about',
+      icon: Origami,
+    },
+    {
+      name: 'Now',
+      url: '/now',
+      icon: Signpost,
+    },
+    {
       name: 'Blog',
       url: '/blog',
-      icon: Notebook,
+      icon: Feather,
     },
     {
       name: 'Photos',
       url: '/photos',
       icon: Image,
-    },
-    {
-      name: 'About',
-      url: '/about',
-      icon: BookType,
     },
     {
       name: 'Dashboard',
@@ -81,35 +109,33 @@ const data = {
     {
       name: 'Projects',
       url: '/projects',
-      icon: Type,
+      icon: Swords,
     },
     {
       name: 'Movies',
       url: '/movies',
-      icon: BookType,
+      icon: Popcorn,
     },
     {
       name: 'Music',
       url: '/music',
-      icon: Rocket,
+      icon: Music4,
     },
     {
       name: 'Quotes',
       url: '/quotes',
-      icon: Rocket,
+      icon: Quote,
     },
     {
       name: 'Game',
       url: '/game',
-      icon: Rocket,
-    },    {
-      name: 'Now',
-      url: '/now',
-      icon: Rocket,
-    },    {
+      icon: Ghost,
+    },
+
+    {
       name: 'Contact',
       url: '/contact',
-      icon: Rocket,
+      icon: Contact,
     },
   ],
   user: {
@@ -117,23 +143,7 @@ const data = {
     email: 'hello@thientran.io',
     avatar: '/',
   },
-  teams: [
-    {
-      name: 'Acme Inc',
-      logo: GalleryVerticalEnd,
-      plan: 'Enterprise',
-    },
-    {
-      name: 'Acme Corp.',
-      logo: AudioWaveform,
-      plan: 'Startup',
-    },
-    {
-      name: 'Evil Corp.',
-      logo: Command,
-      plan: 'Free',
-    },
-  ],
+
   navMain: [
     {
       title: 'About',

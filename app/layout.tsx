@@ -11,7 +11,7 @@ import { metaData } from './config';
 import DotPattern from './components/dotpattern';
 import Pathname from './components/pathname';
 import { ThemeSwitch } from './components/theme-switch';
-import { Command } from 'lucide-react';
+import { Command, Slash } from 'lucide-react';
 import { AppSidebar } from '@/components/app-sidebar';
 import {
   Breadcrumb,
@@ -115,7 +115,8 @@ export default function RootLayout({
                       <BreadcrumbItem className='block'>
                         <BreadcrumbLink href='/'>thien</BreadcrumbLink>
                       </BreadcrumbItem>
-                      <BreadcrumbSeparator className='block' />
+
+                      <BreadcrumbSeparator className='block'></BreadcrumbSeparator>
                       <BreadcrumbItem>
                         <BreadcrumbPage>
                           <Pathname />

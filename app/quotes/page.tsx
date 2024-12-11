@@ -4,7 +4,7 @@ import { quotes } from '@/data/quotes';
 
 export const metadata: Metadata = {
   title: 'Quotes',
-  description: 'My Quotes',
+  description: 'Favorite Quotes',
 };
 
 export default function QuotesPage() {
@@ -22,7 +22,7 @@ export default function QuotesPage() {
             <div className='flex flex-col'>
               <div className='w-full flex justify-between items-baseline'>
                 <span className='text-black dark:text-white font-medium tracking-tight'>
-                  {quotes.quote}
+                  "{quotes.quote}"
                 </span>
               </div>
               <p className='prose prose-neutral dark:prose-invert pt-3'>

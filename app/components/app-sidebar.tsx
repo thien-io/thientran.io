@@ -79,6 +79,7 @@ import {
 import { ThemeSwitch } from './theme-switch';
 
 // This is sample data.
+const YEAR = new Date().getFullYear();
 const data = {
   pages: [
     {
@@ -262,7 +263,6 @@ const data = {
   ],
 };
 
-
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible='offcanvas' {...props}>
@@ -276,14 +276,14 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarHeader>
       <SidebarContent>
         <NavPages pages={data.pages} />
- 
-        
       </SidebarContent>
       <SidebarFooter>
-        <div className="ml-2 flex ">
-          <ThemeSwitch /><p className="text-xs justify-center items-center content-center ml-2">theme</p>
+        <div className='ml-2 flex justify-between '>
+          <ThemeSwitch />
+          <p className='text-xs justify-center items-center content-center ml-2'>
+            thien © {YEAR}
+          </p>
         </div>
-        <NavUser user={data.user} />
       </SidebarFooter>
       <SidebarRail />
     </Sidebar>

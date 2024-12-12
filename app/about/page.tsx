@@ -4,7 +4,7 @@ export default function AboutPage() {
   return (
     <section>
       <BlurFade delay={0.09}>
-        <h1 className='font-medium text-2xl mb-8 tracking-tighter'>about</h1>
+        <h1 className='font-medium text-2xl mb-8 tracking-tighter'>About</h1>
       </BlurFade>
       <BlurFade delay={0.2}>
         <p className='text-sm mb-4'>

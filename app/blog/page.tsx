@@ -15,7 +15,7 @@ export default function BlogPosts() {
   return (
     <section>
       <BlurFade delay={BLUR_FADE_DELAY}>
-        <h1 className="font-medium text-2xl mb-8 tracking-tighter">blog</h1>
+        <h1 className="font-medium text-2xl mb-8 tracking-tighter">Blog</h1>
       </BlurFade>
       <div>
         {allBlogs

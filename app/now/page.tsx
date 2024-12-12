@@ -8,7 +8,7 @@ export default function Now() {
       </BlurFade>
 
       <BlurFade delay={0.2}>
-        <p className='text-sm mb-4'>- coaching tenning</p>
+        <p className='text-sm mb-4'>- coaching tennis</p>
         <p className='text-sm mb-4'>
           - walking Loki - my 3 year old doodle best friend
         </p>

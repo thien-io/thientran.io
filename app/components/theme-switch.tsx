@@ -6,7 +6,7 @@ import type { ThemeProviderProps } from "next-themes/dist/types";
 
 import { Button } from './ui/button';
 import useHasMounted from '@/lib/hooks/useHasMounted'
-import { Sun, Moon } from "lucide-react";
+import { Sun, Moon } from 'lucide-react';
 
 const storageKey = 'theme-preference';
 
@@ -77,17 +77,16 @@ export const ThemeSwitch: React.FC = () => {
 
   return (
     <button
-      className=" flex h-8 w-8 cursor-pointer items-center justify-center rounded-md bg-zinc-300  ring-neutral-400 transition duration-200 ease-in-out hover:bg-zinc-300 hover:ring-2 dark:bg-zinc-700 dark:hover:bg-zinc-800 "
-      type="button"
+      className='inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0'
       aria-label={`switch to ${isDarkTheme ? 'light' : 'dark'} mode`}
       onClick={toggleTheme}
     >
       {hasMounted && (
         <>
           {isDarkTheme ? (
-            <Sun className="h-4 w-4" />
+            <Sun className='h-4 w-4' />
           ) : (
-            <Moon className="h-4 w-4" />
+            <Moon className='h-4 w-4' />
           )}
         </>
       )}

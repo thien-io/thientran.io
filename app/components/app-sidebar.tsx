@@ -7,9 +7,12 @@ import {
   Bot,
   Command,
   Frame,
+  IdCard,
   GalleryVerticalEnd,
   Map,
+  AtSign,
   PieChart,
+  House,
   Settings2,
   SquareTerminal,
   ChevronRight,
@@ -55,12 +58,12 @@ import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/components/ui/collapsible"
-import { NavMain } from "@/components/nav-main"
-import { NavPages } from "@/components/nav-pages"
-import { NavUser } from "@/components/nav-user"
-import { TeamSwitcher } from "@/components/team-switcher"
-import Link from "next/link"
+} from '@/components/ui/collapsible';
+import { NavMain } from '@/components/nav-main';
+import { NavPages } from '@/components/nav-pages';
+import { NavUser } from '@/components/nav-user';
+import { TeamSwitcher } from '@/components/team-switcher';
+import Link from 'next/link';
 import {
   Sidebar,
   SidebarContent,
@@ -75,7 +78,7 @@ import {
   SidebarMenuItem,
   SidebarMenuSub,
   SidebarRail,
-} from "@/components/ui/sidebar"
+} from '@/components/ui/sidebar';
 import { ThemeSwitch } from './theme-switch';
 
 // This is sample data.
@@ -83,14 +86,19 @@ const YEAR = new Date().getFullYear();
 const data = {
   pages: [
     {
+      name: 'Home',
+      url: '/',
+      icon: House,
+    },
+    {
       name: 'About',
       url: '/about',
-      icon: Origami,
+      icon: IdCard,
     },
     {
       name: 'Now',
       url: '/now',
-      icon: Signpost,
+      icon: Rocket,
     },
     {
       name: 'Blog',
@@ -102,11 +110,7 @@ const data = {
       url: '/photos',
       icon: Image,
     },
-    {
-      name: 'Dashboard',
-      url: '/dashboard',
-      icon: Rocket,
-    },
+
     {
       name: 'Projects',
       url: '/projects',
@@ -127,16 +131,11 @@ const data = {
       url: '/quotes',
       icon: Quote,
     },
-    {
-      name: 'Game',
-      url: '/game',
-      icon: Ghost,
-    },
 
     {
       name: 'Contact',
       url: '/contact',
-      icon: Contact,
+      icon: AtSign,
     },
   ],
   user: {

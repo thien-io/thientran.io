@@ -1,5 +1,15 @@
 export const contact = [
   {
+    social: 'Email',
+    username: 'hello@thientran.io',
+    url: 'mailto:hello@thientran.io',
+  },
+  {
+    social: 'LinkedIn',
+    username: 'thienio',
+    url: 'https://linkedin.com/in/thienio',
+  },
+  {
     social: 'Github',
     username: 'thien-io',
     url: 'https://github.com/thien-io',
@@ -7,7 +17,7 @@ export const contact = [
   {
     social: 'Discord',
     username: 'thien.io',
-    url: 'https://discord.com/thien.io',
+    url: 'https://discordapp.com/users/thien.io',
   },
   {
     social: 'Instagram',
@@ -19,10 +29,4 @@ export const contact = [
     username: 'thien.io',
     url: 'https://t.me/thien.io',
   },
-  {
-    social: 'Email',
-    username: 'hello@thientran.io',
-    url: 'mailto:hello@thientran.io',
-  },
-
 ];

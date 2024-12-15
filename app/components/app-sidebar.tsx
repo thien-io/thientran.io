@@ -59,10 +59,7 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from '@/components/ui/collapsible';
-import { NavMain } from '@/components/nav-main';
 import { NavPages } from '@/components/nav-pages';
-import { NavUser } from '@/components/nav-user';
-import { TeamSwitcher } from '@/components/team-switcher';
 import Link from 'next/link';
 import { NameTransition } from './name';
 import {
@@ -129,7 +126,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <NavPages pages={data.pages} />
       </SidebarContent>
       <SidebarFooter>
-        <div className='ml-2 flex justify-between mb-2'>
+        <div className='ml-2 flex justify-between mb-3'>
           <ThemeSwitch />
           <p className='text-xs justify-center items-center content-center ml-2 mr-1'>
             thien © {YEAR}

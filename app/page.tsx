@@ -6,9 +6,7 @@ export default function Page() {
   return (
     <section>
       <div className='prose prose-neutral dark:prose-invert'>
-        <p>
-          Hello, I'm Thien, a tennis coach and web developer from Connecticut.
-        </p>
+        <p>Hello, I'm Thien, a tennis coach from Connecticut.</p>
       </div>
     </section>
   );

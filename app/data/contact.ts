@@ -22,7 +22,7 @@ export const contact = [
   {
     social: 'Email',
     username: 'hello@thientran.io',
-    url: 'mailto:hell@thientran.io',
+    url: 'mailto:hello@thientran.io',
   },
 
 ];

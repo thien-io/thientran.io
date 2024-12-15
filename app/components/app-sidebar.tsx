@@ -64,6 +64,7 @@ import { NavPages } from '@/components/nav-pages';
 import { NavUser } from '@/components/nav-user';
 import { TeamSwitcher } from '@/components/team-switcher';
 import Link from 'next/link';
+import { NameTransition } from './name';
 import {
   Sidebar,
   SidebarContent,
@@ -81,7 +82,7 @@ import {
 } from '@/components/ui/sidebar';
 import { ThemeSwitch } from './theme-switch';
 
-// This is sample data.
+// Nav Data
 const YEAR = new Date().getFullYear();
 const data = {
   pages: [
@@ -95,11 +96,7 @@ const data = {
       url: '/about',
       icon: IdCard,
     },
-    {
-      name: 'Now',
-      url: '/now',
-      icon: Rocket,
-    },
+
     {
       name: 'Blog',
       url: '/blog',
@@ -112,153 +109,10 @@ const data = {
     },
 
     {
-      name: 'Projects',
-      url: '/projects',
-      icon: Swords,
-    },
-    {
-      name: 'Movies',
-      url: '/movies',
-      icon: Popcorn,
-    },
-    {
-      name: 'Music',
-      url: '/music',
-      icon: Music4,
-    },
-    {
-      name: 'Quotes',
-      url: '/quotes',
-      icon: Quote,
-    },
-
-    {
       name: 'Contact',
       url: '/contact',
       icon: AtSign,
     },
-  ],
-  user: {
-    name: 'thien tran',
-    email: 'hello@thientran.io',
-    avatar: '/',
-  },
-
-  navMain: [
-    {
-      title: 'About',
-      url: '#',
-      icon: SquareTerminal,
-      isActive: true,
-      items: [
-        {
-          title: 'Now',
-          url: '/now',
-        },
-        {
-          title: 'Work',
-          url: '/work',
-        },
-        {
-          title: 'Education',
-          url: '/edu',
-        },
-      ],
-    },
-    {
-      title: 'Blog',
-      url: '/blog',
-      icon: Bot,
-      items: [
-        {
-          title: 'Tennis',
-          url: '/blog',
-        },
-        {
-          title: 'Development',
-          url: '/blog',
-        },
-        {
-          title: 'Design',
-          url: '/blog',
-        },
-      ],
-    },
-    {
-      title: 'Hobbies',
-      url: '/hobbies',
-      icon: BookOpen,
-      items: [
-        {
-          title: 'Books',
-          url: '/books',
-        },
-        {
-          title: 'Movies',
-          url: '/movies',
-        },
-        {
-          title: 'Music',
-          url: '/music',
-        },
-      ],
-    },
-    {
-      title: 'Projects',
-      url: '/projects',
-      icon: Settings2,
-      items: [
-        {
-          title: 'thien.me',
-          url: 'https://thien.me',
-        },
-        {
-          title: 'Modern Pickle',
-          url: 'https://modernpickle.com',
-        },
-      ],
-    },
-  ],
-
-  changes: [
-    {
-      file: 'README.md',
-      state: 'M',
-    },
-    {
-      file: 'api/hello/route.ts',
-      state: 'U',
-    },
-    {
-      file: 'app/layout.tsx',
-      state: 'M',
-    },
-  ],
-  tree: [
-    [
-      'app',
-      [
-        'api',
-        ['hello', ['route.ts']],
-        'page.tsx',
-        'layout.tsx',
-        ['blog', ['page.tsx']],
-      ],
-    ],
-    [
-      'components',
-      ['ui', 'button.tsx', 'card.tsx'],
-      'header.tsx',
-      'footer.tsx',
-    ],
-    ['lib', ['util.ts']],
-    ['public', 'favicon.ico', 'vercel.svg'],
-    '.eslintrc.json',
-    '.gitignore',
-    'next.config.js',
-    'tailwind.config.js',
-    'package.json',
-    'README.md',
   ],
 };
 
@@ -269,17 +123,15 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <Link
           href='/'
           className='md:hidden items-center justify-center mt-3 ml-2 text-sm font-semibold'
-        >
-          thien
-        </Link>
+        ><NameTransition /></Link>
       </SidebarHeader>
       <SidebarContent>
         <NavPages pages={data.pages} />
       </SidebarContent>
       <SidebarFooter>
-        <div className='ml-2 flex justify-between '>
+        <div className='ml-2 flex justify-between mb-2'>
           <ThemeSwitch />
-          <p className='text-xs justify-center items-center content-center ml-2'>
+          <p className='text-xs justify-center items-center content-center ml-2 mr-1'>
             thien © {YEAR}
           </p>
         </div>

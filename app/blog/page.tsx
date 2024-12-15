@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { formatDate, getBlogPosts } from "app/lib/posts";
 import BlurFade from "app/components/ui/blur-fade";
+import { AnimatedName } from "@/components/animated-name";
 
 export const metadata = {
   title: "Blog",

@@ -13,6 +13,8 @@ import Pathname from './components/pathname';
 import { ThemeSwitch } from './components/theme-switch';
 import { Command, Slash } from 'lucide-react';
 import { AppSidebar } from '@/components/app-sidebar';
+import { NameTransition } from './components/name';
+import { ViewTransitions } from 'next-view-transitions';
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -75,68 +77,69 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang='en' className={cx(GeistSans.variable, GeistMono.variable)}>
-      <head>
-        <link
-          rel='alternate'
-          type='application/rss+xml'
-          href='/rss.xml'
-          title='RSS Feed'
-        />
-        <link
-          rel='alternate'
-          type='application/atom+xml'
-          href='/atom.xml'
-          title='Atom Feed'
-        />
-        <link
-          rel='alternate'
-          type='application/feed+json'
-          href='/feed.json'
-          title='JSON Feed'
-        />
-      </head>
-      <body className='flex h-screen items-center justify-center flex-col'>
-        <ThemeProvider
-          attribute='class'
-          defaultTheme='system'
-          enableSystem
-          disableTransitionOnChange
-        >
-          <main className='flex flex-1 flex-col gap-4 p-4 pt-0 w-full h-screen'>
-            <SidebarProvider>
-              <AppSidebar />
-              <SidebarInset>
-                <header className='flex h-16 shrink-0 items-center gap-2 border-b px-4'>
-                  <SidebarTrigger className='-ml-1' />
-                  <Separator orientation='vertical' className='mr-2 h-4' />
-                  <Breadcrumb>
-                    <BreadcrumbList>
-                      <BreadcrumbItem className='block'>
-                        <BreadcrumbLink href='/'>thien</BreadcrumbLink>
-                      </BreadcrumbItem>
+    <ViewTransitions>
+      <html lang='en' className={cx(GeistSans.variable, GeistMono.variable)}>
+        <head>
+          <link
+            rel='alternate'
+            type='application/rss+xml'
+            href='/rss.xml'
+            title='RSS Feed'
+          />
+          <link
+            rel='alternate'
+            type='application/atom+xml'
+            href='/atom.xml'
+            title='Atom Feed'
+          />
+          <link
+            rel='alternate'
+            type='application/feed+json'
+            href='/feed.json'
+            title='JSON Feed'
+          />
+        </head>
+        <body className='flex h-screen items-center justify-center flex-col'>
+          <ThemeProvider
+            attribute='class'
+            defaultTheme='system'
+            enableSystem
+            disableTransitionOnChange
+          >
+            <main className='flex flex-1 flex-col gap-4 p-4 pt-0 w-full h-screen'>
+              <SidebarProvider>
+                <AppSidebar />
+                <SidebarInset>
+                  <header className='flex h-16 shrink-0 items-center gap-2 border-b px-4'>
+                    <SidebarTrigger className='-ml-1' />
+                    <Separator orientation='vertical' className='mr-2 h-4' />
+                    <Breadcrumb>
+                      <BreadcrumbList>
+                        <BreadcrumbItem className='block'>
+                          <BreadcrumbLink href='/'>thien</BreadcrumbLink>
+                        </BreadcrumbItem>
 
-                      <BreadcrumbSeparator className='block'></BreadcrumbSeparator>
-                      <BreadcrumbItem>
-                        <BreadcrumbPage>
-                          <Pathname />
-                        </BreadcrumbPage>
-                      </BreadcrumbItem>
-                    </BreadcrumbList>
-                  </Breadcrumb>
-                </header>
-                <div className='flex flex-1 flex-col gap-4 p-4'>
-                  <div className='mt-10'>{children}</div>
 
-                </div>
-              </SidebarInset>
-            </SidebarProvider>
+                        <BreadcrumbItem>
+                          <BreadcrumbPage>
+                            <Pathname />
+                          </BreadcrumbPage>
+                        </BreadcrumbItem>
+                      </BreadcrumbList>
+                    </Breadcrumb>
+                  </header>
+                  <div className='flex flex-1 flex-col gap-4 p-4'>
+                    <div className='mt-10'>{children}</div>
+                  </div>
+                </SidebarInset>
+              </SidebarProvider>
 
-            <Analytics />
-            <SpeedInsights />
-          </main>
-        </ThemeProvider>
-      </body>
-    </html>
+              <Analytics />
+              <SpeedInsights />
+            </main>
+          </ThemeProvider>
+        </body>
+      </html>
+    </ViewTransitions>
   );
 }

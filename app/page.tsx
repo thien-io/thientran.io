@@ -8,7 +8,7 @@ export default function Page() {
     <section>
       <div className='prose prose-neutral dark:prose-invert'>
         <p>Hello, I'm Thien, a tennis coach from Connecticut.</p>
-        <HeroTabs />
+        
       </div>
     </section>
   );

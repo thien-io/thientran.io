@@ -19,7 +19,7 @@ import {
 export function HeroTabs() {
   return (
     <Tabs defaultValue="account" className="w-[400px]">
-      <TabsList className="grid w-full grid-cols-2">
+      <TabsList className="grid w-full grid-cols-4">
         <TabsTrigger value="about">About</TabsTrigger>
         <TabsTrigger value="blog">Blog</TabsTrigger>
         <TabsTrigger value="photos">Photos</TabsTrigger>
@@ -34,18 +34,9 @@ export function HeroTabs() {
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-2">
-            <div className="space-y-1">
-              <Label htmlFor="name">Name</Label>
-              <Input id="name" defaultValue="Pedro Duarte" />
-            </div>
-            <div className="space-y-1">
-              <Label htmlFor="username">Username</Label>
-              <Input id="username" defaultValue="@peduarte" />
-            </div>
+            <div>hello</div>
           </CardContent>
-          <CardFooter>
-            <Button>Save changes</Button>
-          </CardFooter>
+         
         </Card>
       </TabsContent>
       <TabsContent value="blog">
@@ -53,7 +44,7 @@ export function HeroTabs() {
           <CardHeader>
             <CardTitle>Blog</CardTitle>
             <CardDescription>
-              Change your password here. After saving, you'll be logged out.
+              Change your password here. After saving, you'll be  out.
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-2">

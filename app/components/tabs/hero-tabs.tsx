@@ -54,7 +54,7 @@ export function HeroTabs() {
           <TabsTrigger value='contact'>Contact</TabsTrigger>
         </TabsList>
         <TabsContent value='about'>
-          <div>Hello, I'm Thien, a tennis coach from Connecticut.</div>
+          <BlurFade delay={0.09 * 4 + 0.05}>Hello, I'm Thien, a tennis coach from Connecticut.</BlurFade>
         </TabsContent>
         <TabsContent value='blog'>
           <div>
@@ -89,6 +89,8 @@ export function HeroTabs() {
           </div>
         </TabsContent>
         <TabsContent value='photos'>
+        <BlurFade delay={0.09 * 4 + 0.05}>
+
           <ImageGrid
             columns={3}
             images={[
@@ -134,9 +136,10 @@ export function HeroTabs() {
               { src: '/photos/tenniscourt4.jpg', alt: 'Tennis' },
             ]}
           />
+        </BlurFade>
         </TabsContent>
         <TabsContent value='contact'>
-          <div className='space-y-6'>
+          <BlurFade delay={0.09 * 4 + 0.05} className='space-y-6'>
             {contact.map((contact, index) => (
               <div className='border-none'>
                 <div>
@@ -153,7 +156,7 @@ export function HeroTabs() {
                 </div>
               </div>
             ))}
-          </div>
+          </BlurFade>
         </TabsContent>
       </Tabs>
     </>

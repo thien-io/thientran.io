@@ -119,7 +119,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <SidebarHeader>
         <Link
           href='/'
-          className='md:hidden items-center justify-center mt-3 ml-2 text-sm font-semibold'
+          className=' items-center justify-center mt-3 ml-2 text-sm font-semibold'
         ><NameTransition /></Link>
       </SidebarHeader>
       <SidebarContent>

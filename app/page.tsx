@@ -16,7 +16,11 @@ export default function Page() {
 
       <SidebarTrigger className='fixed bottom-5 right-5 z-50' />
 
-      <div className='mt-10 w-full ml-2'><HeroTabs/></div>
+
+        <div className='mt-10 w-full ml-2'>
+          <HeroTabs />
+        </div>
+      
     </SidebarProvider>
   );
 }

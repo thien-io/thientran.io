@@ -51,7 +51,7 @@ export function HeroTabs() {
   return (
 
       <Tabs defaultValue='about' className='pr-'>
-        <TabsList className='grid w-full grid-cols-4 mb-20 bg-transparent -ml-4 '>
+        <TabsList className=' mb-20 bg-transparent -ml-4 '>
           <TabsTrigger value='about'>About</TabsTrigger>
           <TabsTrigger value='blog'>Blog</TabsTrigger>
           <TabsTrigger value='photos'>Photos</TabsTrigger>

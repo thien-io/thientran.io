@@ -107,14 +107,10 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <main className='flex flex-1 flex-col gap-4 p-4 pt-0 w-full h-screen'>
-              <SidebarProvider>
-                <AppSidebar />
+              
 
-                <SidebarTrigger className='fixed bottom-5 right-5 z-50'  />
-
-                <div className='mt-10 w-full ml-2'>{children}</div>
-              </SidebarProvider>
-
+                <div className=' w-full mx-2'>{children}</div>
+             
               <Analytics />
               <SpeedInsights />
             </main>

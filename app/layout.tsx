@@ -99,17 +99,17 @@ export default function RootLayout({
             title='JSON Feed'
           />
         </head>
-        <body className='flex h-screen items-center justify-center flex-col '>
+        <body className='flex h-screen items-center justify-center flex-col  '>
           <ThemeProvider
             attribute='class'
             defaultTheme='system'
             enableSystem
             disableTransitionOnChange
           >
-            <main className='flex flex-1 flex-col gap-4 p-4 pt-0 w-full h-screen'>
+            <main className='flex flex-1 flex-col gap-4 p-3 pt-0 w-full h-screen'>
               
 
-                <div className=' w-full mx-2'>{children}</div>
+                <div className=' w-full'>{children}</div>
              
               <Analytics />
               <SpeedInsights />

@@ -29,7 +29,7 @@ export default function Contact() {
                   href={contact.url}
                   target='_blank'
                   rel='noopener noreferrer'
-                  className='group hover:opacity-80 transition-opacity duration-200 flex flex-row justify-between items-center '
+                  className='group hover:opacity-80 transition-opacity duration-200 flex flex-row justify-between items-center text-sm '
                 >
                   {contact.social}
                   <CardDescription>{contact.username}</CardDescription>

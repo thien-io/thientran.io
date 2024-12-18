@@ -19,9 +19,6 @@ export const metadata: Metadata = {
 export default function Contact() {
   return (
     <div className=''>
-      <BlurFade delay={0}>
-        <h1 className='mb-8 text-2xl font-medium tracking-tight'>Contacts</h1>
-      </BlurFade>
       <BlurFade delay={0.2}>
         <div className='space-y-6'>
           {contact.map((contact, index) => (

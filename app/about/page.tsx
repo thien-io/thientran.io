@@ -40,6 +40,11 @@ export default function AboutPage() {
         </header>
         <div className='flex flex-1 flex-col gap-4 p-4'>
           <div className='mt-10'>
+            <BlurFade delay={0.09}>
+              <h1 className='font-medium text-2xl mb-8 tracking-tighter'>
+                About
+              </h1>
+            </BlurFade>
             <About />
           </div>
         </div>

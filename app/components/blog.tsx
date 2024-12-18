@@ -13,9 +13,7 @@ export default function Blog() {
 
   return (
     <>
-      <BlurFade delay={0}>
-        <h1 className='font-medium text-2xl mb-8 tracking-tighter'>Blog</h1>
-      </BlurFade>
+
       <div>
         {allBlogs
           .sort((a, b) => {

@@ -1,7 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
 import { ImageGrid } from "@/components/image-grid";
-
+import BlurFade from "@/components/ui/blur-fade";
 import { AppSidebar } from '@/components/app-sidebar';
 import Pathname from '@/components/pathname';
 import {
@@ -48,6 +48,7 @@ export default function PhotosPage() {
         </header>
         <div className='flex flex-1 flex-col gap-4 p-4'>
           <div className='mt-10'>
+          <BlurFade delay={0}><h1 className='mb-8 text-2xl font-medium tracking-tight'>Photos</h1></BlurFade>
             <Photos />
           </div>
         </div>

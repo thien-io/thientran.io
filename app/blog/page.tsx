@@ -52,6 +52,11 @@ export default function BlogPosts() {
         </header>
         <div className='flex flex-1 flex-col gap-4 p-4'>
           <div className='mt-10'>
+            <BlurFade delay={0}>
+              <h1 className='font-medium text-2xl mb-8 tracking-tighter'>
+                Blog
+              </h1>
+            </BlurFade>
             <Blog />
           </div>
         </div>

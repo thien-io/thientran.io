@@ -9,7 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-
+import BlurFade from '@/components/ui/blur-fade';
 import { AppSidebar } from '@/components/app-sidebar';
 import Pathname from '@/components/pathname';
 import {
@@ -57,6 +57,11 @@ export default function ContactPage() {
         </header>
         <div className='flex flex-1 flex-col gap-4 p-4'>
           <div className='mt-10'>
+            <BlurFade delay={0}>
+              <h1 className='mb-8 text-2xl font-medium tracking-tight'>
+                Contacts
+              </h1>
+            </BlurFade>
             <Contact />
           </div>
         </div>

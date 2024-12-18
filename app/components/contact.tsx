@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
 export default function Contact() {
   return (
-    <section>
+    <div className=''>
       <BlurFade delay={0}>
         <h1 className='mb-8 text-2xl font-medium tracking-tight'>Contacts</h1>
       </BlurFade>
@@ -42,6 +42,6 @@ export default function Contact() {
           ))}
         </div>
       </BlurFade>
-    </section>
+    </div>
   );
 }

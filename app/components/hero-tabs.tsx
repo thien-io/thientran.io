@@ -49,9 +49,9 @@ export function HeroTabs() {
   let allBlogs = getBlogPosts();
 
   return (
-    <>
+
       <Tabs defaultValue='about' className=''>
-        <TabsList className='grid w-full grid-cols-4 mb-20 bg-transparent'>
+        <TabsList className='grid w-full grid-cols-4 mb-20 bg-transparent -ml-4'>
           <TabsTrigger value='about'>About</TabsTrigger>
           <TabsTrigger value='blog'>Blog</TabsTrigger>
           <TabsTrigger value='photos'>Photos</TabsTrigger>
@@ -70,6 +70,6 @@ export function HeroTabs() {
           <Contact />
         </TabsContent>
       </Tabs>
-    </>
+
   );
 }

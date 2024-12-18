@@ -77,7 +77,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ViewTransitions>
+    <ViewTransitions >
       <html lang='en' className={cx(GeistSans.variable, GeistMono.variable)}>
         <head>
           <link
@@ -99,7 +99,7 @@ export default function RootLayout({
             title='JSON Feed'
           />
         </head>
-        <body className='flex h-screen items-center justify-center flex-col'>
+        <body className='flex h-screen items-center justify-center flex-col '>
           <ThemeProvider
             attribute='class'
             defaultTheme='system'
@@ -109,29 +109,10 @@ export default function RootLayout({
             <main className='flex flex-1 flex-col gap-4 p-4 pt-0 w-full h-screen'>
               <SidebarProvider>
                 <AppSidebar />
-                <SidebarInset>
-                  <header className='flex h-16 shrink-0 items-center gap-2 border-b px-4'>
-                    <SidebarTrigger className='-ml-1' />
-                    <Separator orientation='vertical' className='mr-2 h-4' />
-                    <Breadcrumb>
-                      <BreadcrumbList>
-                        <BreadcrumbItem className='block'>
-                          <BreadcrumbLink href='/'>thien</BreadcrumbLink>
-                        </BreadcrumbItem>
 
+                <SidebarTrigger className='fixed bottom-5 right-5 z-50'  />
 
-                        <BreadcrumbItem>
-                          <BreadcrumbPage>
-                            <Pathname />
-                          </BreadcrumbPage>
-                        </BreadcrumbItem>
-                      </BreadcrumbList>
-                    </Breadcrumb>
-                  </header>
-                  <div className='flex flex-1 flex-col gap-4 p-4'>
-                    <div className='mt-10'>{children}</div>
-                  </div>
-                </SidebarInset>
+                <div className='mt-10 w-full ml-2'>{children}</div>
               </SidebarProvider>
 
               <Analytics />

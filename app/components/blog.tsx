@@ -12,7 +12,7 @@ export default function Blog() {
   let allBlogs = getBlogPosts();
 
   return (
-    <section>
+    <>
       <BlurFade delay={0}>
         <h1 className='font-medium text-2xl mb-8 tracking-tighter'>Blog</h1>
       </BlurFade>
@@ -46,6 +46,6 @@ export default function Blog() {
             </BlurFade>
           ))}
       </div>
-    </section>
+    </>
   );
 }

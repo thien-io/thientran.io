@@ -49,27 +49,28 @@ export function HeroTabs() {
   let allBlogs = getBlogPosts();
 
   return (
-
-      <Tabs defaultValue='about' className='pr-'>
-        <TabsList className='flex flex-col items-start mt-40 mb-20 bg-transparent -ml-4 '>
-          <TabsTrigger value='about'>About</TabsTrigger>
-          <TabsTrigger value='blog'>Blog</TabsTrigger>
-          <TabsTrigger value='photos'>Photos</TabsTrigger>
-          <TabsTrigger value='contact'>Contact</TabsTrigger>
-        </TabsList>
-        <TabsContent value='about'>
-          <About />
-        </TabsContent>
-        <TabsContent value='blog'>
-          <Blog />
-        </TabsContent>
-        <TabsContent value='photos'>
-          <Photos />
-        </TabsContent>
-        <TabsContent value='contact'>
-          <Contact />
-        </TabsContent>
-      </Tabs>
-
+    <Tabs defaultValue='start' className='pr-'>
+      <TabsList className='flex flex-col items-start mt-40 mb-20 bg-transparent -ml-4 '>
+        <TabsTrigger value='about'>About</TabsTrigger>
+        <TabsTrigger value='blog'>Blog</TabsTrigger>
+        <TabsTrigger value='photos'>Photos</TabsTrigger>
+        <TabsTrigger value='contact'>Contact</TabsTrigger>
+      </TabsList>
+      <TabsContent value='start'>
+        <p className='text-sm'>Hello, I'm Thien, a tennis coach from Connecticut.</p>
+      </TabsContent>
+      <TabsContent value='about'>
+        <About />
+      </TabsContent>
+      <TabsContent value='blog'>
+        <Blog />
+      </TabsContent>
+      <TabsContent value='photos'>
+        <Photos />
+      </TabsContent>
+      <TabsContent value='contact'>
+        <Contact />
+      </TabsContent>
+    </Tabs>
   );
 }

@@ -14,31 +14,10 @@ export const metadata: Metadata = {
   title: 'Contact',
   description: 'My Contacts',
 };
+import Contact from '@/components/contact';
 
-export default function Contact() {
+export default function ContactPage() {
   return (
-    <section>
-      <h1 className='mb-8 text-2xl font-medium tracking-tight'>Contacts</h1>
-
-      <div className='space-y-6'>
-        {contact.map((contact, index) => (
-          <div className='border-none'>
-
-            <div>
-              <a
-                key={index}
-                href={contact.url}
-                target='_blank'
-                rel='noopener noreferrer'
-                className='group hover:opacity-80 transition-opacity duration-200 flex flex-row justify-between items-center '
-              >
-                {contact.social}
-                <CardDescription>{contact.username}</CardDescription>
-              </a>
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
+    <Contact/>
   );
 }

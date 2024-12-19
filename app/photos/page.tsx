@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   title: "Photos",
   description: "My Photos",
 };
-import Photos from "@/components/photos";
+import Photos from "@/photos/photos";
 export default function PhotosPage() {
   return (
     <SidebarProvider>

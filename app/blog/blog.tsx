@@ -12,8 +12,8 @@ export default function Blog() {
   let allBlogs = getBlogPosts();
 
   return (
-    <>
-      <div>
+
+      <div className='mb-40'>
         {allBlogs
           .sort((a, b) => {
             if (
@@ -43,6 +43,6 @@ export default function Blog() {
             </BlurFade>
           ))}
       </div>
-    </>
+
   );
 }

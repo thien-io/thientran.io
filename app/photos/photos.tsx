@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function Photos() {
   return (
-    <div >
+    <div className='mb-40' >
 
       <BlurFade delay={0.2}><ImageGrid
         columns={3}

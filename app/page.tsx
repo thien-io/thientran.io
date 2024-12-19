@@ -15,7 +15,7 @@ export default function Page() {
     <SidebarProvider>
       <AppSidebar />
 
-      <SidebarTrigger className='fixed bottom-5 left-4 z-50 md:hidden' />
+      <SidebarTrigger className='fixed bottom-6 left-4 z-50 md:hidden' />
 
       <div className='mt-10 w-full ml-2'>
       <Link

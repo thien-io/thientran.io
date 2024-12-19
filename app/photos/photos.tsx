@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import { ImageGrid } from '@/components/image-grid';
-import BlurFade from './ui/blur-fade';
+import BlurFade from '@/components/ui/blur-fade';
 
 export const metadata: Metadata = {
   title: 'Photos',

@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   title: 'Contact',
   description: 'My Contacts',
 };
-import Contact from '@/components/contact';
+import Contact from '@/contact/contact';
 
 export default function ContactPage() {
   return (

@@ -8,10 +8,10 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import About from './about';
-import Blog from './blog';
-import Photos from './photos';
-import Contact from './contact';
+import About from '../about/about';
+import Blog from '../blog/blog';
+import Photos from '@/photos/photos';
+import Contact from '@/contact/contact';
 import { contact } from '@/data/contact';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';

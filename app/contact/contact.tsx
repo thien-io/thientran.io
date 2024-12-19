@@ -9,7 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import BlurFade from './ui/blur-fade';
+import BlurFade from '@/components/ui/blur-fade';
 
 export const metadata: Metadata = {
   title: 'Contact',

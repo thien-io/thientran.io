@@ -14,10 +14,10 @@ export default function Page() {
     <SidebarProvider>
       <AppSidebar />
 
-      <SidebarTrigger className='fixed bottom-5 right-5 z-50' />
+      <SidebarTrigger className='fixed bottom-5 left-4 z-50 md:hidden' />
 
       <div className='mt-10 w-full ml-2'>
-        <p className="text-lg tracking-tight font-medium mt-10">Thien Tran v1</p>
+        <p className="text-lg tracking-tight font-medium mt-10">Thien Tran</p>
         <HeroTabs />
       </div>
     </SidebarProvider>

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { formatDate, getBlogPosts } from "app/lib/posts";
 import BlurFade from "app/components/ui/blur-fade";
 import { AnimatedName } from "@/components/animated-name";
-import Blog from "@/components/blog";
+import Blog from '@/blog/blog';
 import { AppSidebar } from '@/components/app-sidebar';
 import Pathname from '@/components/pathname';
 import {

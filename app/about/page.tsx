@@ -1,5 +1,5 @@
 import BlurFade from '@/components/ui/blur-fade';
-import About from '@/components/about';
+import About from '@/about/about';
 import { AppSidebar } from '@/components/app-sidebar';
 import Pathname from '@/components/pathname';
 import {

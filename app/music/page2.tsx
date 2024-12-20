@@ -13,6 +13,7 @@ export default function MusicPage2() {
       <div className='mb-10'>
         <NowPlaying />
       </div>
+
       <TopTracks />
     </div>
   );

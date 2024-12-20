@@ -32,7 +32,7 @@ export function NowPlaying() {
     }
 
     fetchNowPlaying();
-    const interval = setInterval(fetchNowPlaying, 1000); // Refresh every 30 seconds
+    const interval = setInterval(fetchNowPlaying, 10000); // Refresh every 30 seconds
 
     return () => clearInterval(interval);
   }, []);

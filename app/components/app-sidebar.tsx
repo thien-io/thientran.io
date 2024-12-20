@@ -106,6 +106,12 @@ const data = {
     },
 
     {
+      name: 'Music',
+      url: '/music',
+      icon: Music4,
+    },
+
+    {
       name: 'Contact',
       url: '/contact',
       icon: AtSign,

@@ -1,8 +1,9 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
+import { ExternalLink } from 'lucide-react';
 
 interface Track {
   artist: string;
@@ -58,6 +59,17 @@ export function TopTracks() {
                 <CardTitle className="truncate">{track.title}</CardTitle>
                 <CardDescription className="truncate">{track.artist}</CardDescription>
               </CardHeader>
+              <CardFooter>
+        <a
+          href={track.songUrl}
+          target='_blank'
+          rel='noopener noreferrer'
+          className='text-sm text-muted-foreground hover:text-primary flex items-center'
+        >
+          Open in Spotify
+          <ExternalLink className='ml-1 h-3 w-3' />
+        </a>
+      </CardFooter>
             </Card>
           ))}
     </div>

@@ -17,6 +17,7 @@
     "@radix-ui/react-slot": "^1.1.0",
     "@radix-ui/react-tabs": "^1.1.2",
     "@radix-ui/react-tooltip": "^1.1.4",
+    "@tabler/icons-react": "^3.26.0",
     "@trpc/client": "11.0.0-rc.660",
     "@trpc/server": "11.0.0-rc.660",
     "@types/node": "22.5.0",

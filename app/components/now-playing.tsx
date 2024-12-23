@@ -1,3 +1,5 @@
+'use client';
+
 import { useState, useEffect } from 'react';
 import {
   Card,
@@ -33,13 +35,13 @@ export function NowPlaying() {
       } catch (error) {
         console.error('Error fetching now playing:', error);
         setIsLoading(false);
+      } finally {
+        // Revalidate the request every n milliseconds
+        setTimeout(fetchNowPlaying, 10000);
       }
     }
 
     fetchNowPlaying();
-    const interval = setInterval(fetchNowPlaying, 10000); // Refresh every 30 seconds
-
-    return () => clearInterval(interval);
   }, []);
 
   if (isLoading) {

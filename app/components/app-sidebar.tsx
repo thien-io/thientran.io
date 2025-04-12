@@ -110,11 +110,6 @@ const data = {
       url: '/music',
       icon: Music4,
     },
-    {
-      name: 'Stats',
-      url: '/stats',
-      icon: Rocket,
-    },
 
     {
       name: 'Contact',

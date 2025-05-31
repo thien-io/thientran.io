@@ -24,4 +24,9 @@ export const contact = [
     username: 'thientran.io',
     url: 'https://instagram.com/thientran.io',
   },
+  {
+    social: 'Venmo',
+    username: 'thienmtran',
+    url: 'https://account.venmo.com/u/thienmtran',
+  },
 ];

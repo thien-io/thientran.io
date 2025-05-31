@@ -13,35 +13,55 @@ export default function Photos() {
     <div className='mb-40' >
 
       <BlurFade delay={0.2}><ImageGrid
-        columns={3}
+        columns={2}
         images={[
           {
-            src: '/photos/retro-tennis-court-1.jpg',
+            src: '/photos/tennis-court-1.jpg',
             alt: 'tennis',
             href: 'https://thientran.io',
           },
           {
-            src: '/photos/retro-tennis-court-2.jpg',
+            src: '/photos/tennis-court-2.webp',
             alt: 'tennis',
             href: 'https://thientran.io',
           },
           {
-            src: '/photos/retro-tennis-court-3.jpg',
+            src: '/photos/tennis-court-3.webp',
             alt: 'tennis',
             href: 'https://thientran.io',
           },
           {
-            src: '/photos/retro-tennis-court-4.jpg',
+            src: '/photos/tennis-court-4.webp',
             alt: 'tennis',
             href: 'https://thientran.io',
           },
           {
-            src: '/photos/retro-tennis-court-5.jpg',
+            src: '/photos/tennis-court-5.webp',
             alt: 'tennis',
             href: 'https://thientran.io',
           },
           {
-            src: '/photos/retro-tennis-court-6.jpg',
+            src: '/photos/tennis-court-7.webp',
+            alt: 'tennis',
+            href: 'https://thientran.io',
+          },
+          {
+            src: '/photos/tennis-court-8.webp',
+            alt: 'tennis',
+            href: 'https://thientran.io',
+          },
+          {
+            src: '/photos/tennis-court-9.webp',
+            alt: 'tennis',
+            href: 'https://thientran.io',
+          },
+          {
+            src: '/photos/tennis-court-10.webp',
+            alt: 'tennis',
+            href: 'https://thientran.io',
+          },
+          {
+            src: '/photos/tennis-court-11.webp',
             alt: 'tennis',
             href: 'https://thientran.io',
           },
@@ -51,10 +71,12 @@ export default function Photos() {
       <ImageGrid
         columns={2}
         images={[
-          { src: '/photos/tenniscourt1.jpg', alt: 'Tennis' },
-          { src: '/photos/tenniscourt2.jpg', alt: 'Tennis' },
-          { src: '/photos/tenniscourt3.jpg', alt: 'Tennis' },
-          { src: '/photos/tenniscourt4.jpg', alt: 'Tennis' },
+          { src: '/photos/retro-tennis-court-1.jpg', alt: 'Tennis' },
+          { src: '/photos/retro-tennis-court-2.jpg', alt: 'Tennis' },
+          { src: '/photos/retro-tennis-court-3.jpg', alt: 'Tennis' },
+          { src: '/photos/retro-tennis-court-4.jpg', alt: 'Tennis' },
+          { src: '/photos/retro-tennis-court-5.jpg', alt: 'Tennis' },
+          { src: '/photos/retro-tennis-court-6.jpg', alt: 'Tennis' },
         ]}
       />
 

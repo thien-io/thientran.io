@@ -1,8 +1,8 @@
-import Link from 'next/link';
+import Link from "next/link";
 
 export function NameTransition() {
   return (
-    <Link href='https://thientran.io' className=' transition-element '>
+    <h1 className=' transition-element '>
       <span className='sr-only'>Thien</span>
       <span aria-hidden='true' className='block overflow-hidden group relative'>
         <span className='inline-block transition-all duration-300 ease-in-out group-hover:-translate-y-full'>
@@ -28,6 +28,6 @@ export function NameTransition() {
           ))}
         </span>
       </span>
-    </Link>
+    </h1>
   );
 }

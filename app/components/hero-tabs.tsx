@@ -53,7 +53,6 @@ export function HeroTabs() {
       <TabsList className='flex flex-col items-start mt-40 mb-20 bg-transparent -ml-4 '>
         <TabsTrigger value='about'>About</TabsTrigger>
         <TabsTrigger value='blog'>Blog</TabsTrigger>
-        <TabsTrigger value='photos'>Photos</TabsTrigger>
         <TabsTrigger value='contact'>Contact</TabsTrigger>
       </TabsList>
       <TabsContent value='start'>
@@ -64,9 +63,6 @@ export function HeroTabs() {
       </TabsContent>
       <TabsContent value='blog'>
         <Blog />
-      </TabsContent>
-      <TabsContent value='photos'>
-        <Photos />
       </TabsContent>
       <TabsContent value='contact'>
         <Contact />

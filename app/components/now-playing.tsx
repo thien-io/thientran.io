@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useEffect, useCallback } from "react"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Skeleton } from "@/components/ui/skeleton"
 import { ExternalLink, RefreshCw } from "lucide-react"
@@ -55,7 +54,6 @@ export function NowPlaying() {
   useEffect(() => {
     fetchNowPlaying()
 
-    // Set up interval for auto-refresh every 30 seconds
     const interval = setInterval(() => {
       fetchNowPlaying()
     }, 30000)
@@ -69,100 +67,108 @@ export function NowPlaying() {
 
   if (isLoading) {
     return (
-      <Card>
-        <CardHeader>
-          <CardTitle>
-            <Skeleton className="h-4 w-[200px]" />
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="flex items-center space-x-4">
+      <div className="bg-gradient-to-r from-[#1f1f1f] to-[#2a2a2a] rounded-lg p-6">
+        <div className="flex items-center justify-between mb-4">
+          <Skeleton className="h-6 w-32" />
+          <Skeleton className="h-8 w-8 rounded" />
+        </div>
+        <div className="flex items-center space-x-4">
           <Skeleton className="h-20 w-20 rounded-md" />
           <div className="flex-1 space-y-2">
-            <Skeleton className="h-4 w-3/4" />
-            <Skeleton className="h-3 w-1/2" />
+            <Skeleton className="h-5 w-3/4" />
+            <Skeleton className="h-4 w-1/2" />
+            <Skeleton className="h-3 w-1/3" />
           </div>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
     )
   }
 
   if (error) {
     return (
-      <Card>
-        <CardHeader>
-          <CardTitle>Error</CardTitle>
-          <CardDescription>{error}</CardDescription>
-        </CardHeader>
-        <CardFooter>
-          <Button onClick={handleManualRefresh} disabled={isRefreshing}>
-            <RefreshCw className={`mr-2 h-4 w-4 ${isRefreshing ? "animate-spin" : ""}`} />
-            Try Again
-          </Button>
-        </CardFooter>
-      </Card>
+      <div className="bg-gradient-to-r from-[#1f1f1f] to-[#2a2a2a] rounded-lg p-6">
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="text-xl font-bold text-white">Error</h2>
+        </div>
+        <p className="text-[#b3b3b3] mb-4">{error}</p>
+        <Button
+          onClick={handleManualRefresh}
+          disabled={isRefreshing}
+          className="bg-[#1db954] hover:bg-[#1ed760] text-white"
+        >
+          <RefreshCw className={`mr-2 h-4 w-4 ${isRefreshing ? "animate-spin" : ""}`} />
+          Try Again
+        </Button>
+      </div>
     )
   }
 
   if (!nowPlaying || !nowPlaying.isPlaying) {
     return (
-      <Card>
-        <CardHeader className="flex flex-row items-center justify-between">
-          <div>
-            <CardTitle>Not Playing</CardTitle>
-            <CardDescription>Spotify is currently not playing any tracks.</CardDescription>
-          </div>
-          <Button variant="outline" size="sm" onClick={handleManualRefresh} disabled={isRefreshing}>
+      <div className="bg-gradient-to-r from-[#1f1f1f] to-[#2a2a2a] rounded-lg p-6 hover:from-[#252525] hover:to-[#2f2f2f] transition-all duration-300">
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="text-xl font-bold text-white">Not Playing</h2>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={handleManualRefresh}
+            disabled={isRefreshing}
+            className="border-[#535353] text-[#b3b3b3] hover:border-white hover:text-white bg-transparent"
+          >
             <RefreshCw className={`h-4 w-4 ${isRefreshing ? "animate-spin" : ""}`} />
           </Button>
-        </CardHeader>
-        {lastUpdated && (
-          <CardFooter>
-            <p className="text-xs text-muted-foreground">Last updated: {lastUpdated.toLocaleTimeString()}</p>
-          </CardFooter>
-        )}
-      </Card>
+        </div>
+        <p className="text-[#b3b3b3]">Spotify is currently not playing any tracks.</p>
+        {lastUpdated && <p className="text-xs text-[#535353] mt-4">Last updated: {lastUpdated.toLocaleTimeString()}</p>}
+      </div>
     )
   }
 
   return (
-    <Card>
-      <CardHeader className="flex flex-row items-center justify-between">
-        <CardTitle className="flex items-center">
-          Now Playing
-          <div className="ml-3">
-            <SoundBars />
-          </div>
-        </CardTitle>
-        <Button variant="outline" size="sm" onClick={handleManualRefresh} disabled={isRefreshing}>
+    <div className="bg-gradient-to-r from-[#1f1f1f] to-[#2a2a2a] rounded-lg p-6 hover:from-[#252525] hover:to-[#2f2f2f] transition-all duration-300">
+      <div className="flex items-center justify-between mb-4">
+        <div className="flex items-center">
+          <h2 className="text-xl font-bold text-white mr-3">Now Playing</h2>
+          <SoundBars />
+        </div>
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={handleManualRefresh}
+          disabled={isRefreshing}
+          className="border-[#535353] text-[#b3b3b3] hover:border-white hover:text-white bg-transparent"
+        >
           <RefreshCw className={`h-4 w-4 ${isRefreshing ? "animate-spin" : ""}`} />
         </Button>
-      </CardHeader>
-      <CardContent className="flex items-center space-x-4">
+      </div>
+
+      <div className="flex items-center space-x-4">
         {nowPlaying.albumImageUrl && (
           <img
             src={nowPlaying.albumImageUrl || "/placeholder.svg"}
             alt={`${nowPlaying.album} album cover`}
-            className="h-20 w-20 rounded-md object-cover"
+            className="h-20 w-20 rounded-md object-cover shadow-lg"
           />
         )}
         <div className="flex-1 min-w-0">
-          <h3 className="font-semibold truncate">{nowPlaying.title}</h3>
-          <p className="text-sm text-muted-foreground truncate">{nowPlaying.artist}</p>
-          <p className="text-xs text-muted-foreground truncate">{nowPlaying.album}</p>
+          <h3 className="font-semibold text-white text-lg truncate mb-1">{nowPlaying.title}</h3>
+          <p className="text-[#b3b3b3] truncate mb-1">{nowPlaying.artist}</p>
+          <p className="text-xs text-[#535353] truncate">{nowPlaying.album}</p>
         </div>
-      </CardContent>
-      <CardFooter className="flex justify-between items-center">
+      </div>
+
+      <div className="flex justify-between items-center mt-4">
         <a
           href={nowPlaying.songUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-sm text-muted-foreground hover:text-primary flex items-center transition-colors"
+          className="text-sm text-[#b3b3b3] hover:text-white flex items-center transition-colors"
         >
           Open in Spotify
           <ExternalLink className="ml-1 h-3 w-3" />
         </a>
-        {lastUpdated && <p className="text-xs text-muted-foreground">Updated: {lastUpdated.toLocaleTimeString()}</p>}
-      </CardFooter>
-    </Card>
+        {lastUpdated && <p className="text-xs text-[#535353]">Updated: {lastUpdated.toLocaleTimeString()}</p>}
+      </div>
+    </div>
   )
 }

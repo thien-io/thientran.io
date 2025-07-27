@@ -4,28 +4,28 @@ export function SoundBars() {
   return (
     <div className="flex items-end space-x-0.5 h-4">
       <div
-        className="w-0.5 bg-green-500 rounded-full animate-pulse"
+        className="w-0.5 bg-[#1db954] rounded-full"
         style={{
           height: "60%",
           animation: "soundbar1 1.2s ease-in-out infinite",
         }}
       />
       <div
-        className="w-0.5 bg-green-500 rounded-full animate-pulse"
+        className="w-0.5 bg-[#1db954] rounded-full"
         style={{
           height: "100%",
           animation: "soundbar2 1.5s ease-in-out infinite",
         }}
       />
       <div
-        className="w-0.5 bg-green-500 rounded-full animate-pulse"
+        className="w-0.5 bg-[#1db954] rounded-full"
         style={{
           height: "40%",
           animation: "soundbar3 1.8s ease-in-out infinite",
         }}
       />
       <div
-        className="w-0.5 bg-green-500 rounded-full animate-pulse"
+        className="w-0.5 bg-[#1db954] rounded-full"
         style={{
           height: "80%",
           animation: "soundbar4 1.3s ease-in-out infinite",

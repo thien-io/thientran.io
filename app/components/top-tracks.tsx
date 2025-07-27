@@ -1,9 +1,8 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Card, CardContent } from "@/components/ui/card"
 import { Skeleton } from "@/components/ui/skeleton"
-import { ExternalLink } from "lucide-react"
+import { ExternalLink, Play } from "lucide-react"
 
 interface Track {
   artist: string
@@ -15,6 +14,7 @@ interface Track {
 export function TopTracks() {
   const [tracks, setTracks] = useState<Track[]>([])
   const [isLoading, setIsLoading] = useState(true)
+  const [hoveredTrack, setHoveredTrack] = useState<number | null>(null)
 
   useEffect(() => {
     async function fetchTopTracks() {
@@ -34,52 +34,64 @@ export function TopTracks() {
 
   if (isLoading) {
     return (
-      <div className="space-y-4">
-        {Array.from({ length: 5 }).map((_, index) => (
-          <Card key={index}>
-            <CardContent className="flex items-center space-x-4 p-4">
-              <Skeleton className="h-16 w-16 rounded-md" />
-              <div className="flex-1 space-y-2">
-                <Skeleton className="h-4 w-3/4" />
-                <Skeleton className="h-3 w-1/2" />
-              </div>
-            </CardContent>
-          </Card>
+      <div className="space-y-2">
+        {Array.from({ length: 10 }).map((_, index) => (
+          <div key={index} className="flex items-center space-x-4 p-2 rounded-md">
+            <Skeleton className="h-4 w-4" />
+            <Skeleton className="h-12 w-12 rounded" />
+            <div className="flex-1 space-y-1">
+              <Skeleton className="h-4 w-3/4" />
+              <Skeleton className="h-3 w-1/2" />
+            </div>
+          </div>
         ))}
       </div>
     )
   }
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-1">
       {tracks.map((track, index) => (
-        <Card key={index} className="hover:bg-muted/50 transition-colors">
-          <CardContent className="flex items-center space-x-4 p-4">
-            <div className="relative">
-              <img
-                src={track.albumImageUrl || "/placeholder.svg"}
-                alt={`${track.title} album cover`}
-                className="h-16 w-16 rounded-md object-cover"
-              />
-              <div className="absolute inset-0 bg-black/20 rounded-md flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
-                <span className="text-white text-xs font-medium">#{index + 1}</span>
-              </div>
-            </div>
-            <div className="flex-1 min-w-0">
-              <h3 className="font-semibold truncate">{track.title}</h3>
-              <p className="text-sm text-muted-foreground truncate">{track.artist}</p>
-            </div>
+        <div
+          key={index}
+          className="group flex items-center space-x-4 p-2 rounded-md hover:bg-white/10 transition-all duration-200 cursor-pointer"
+          onMouseEnter={() => setHoveredTrack(index)}
+          onMouseLeave={() => setHoveredTrack(null)}
+        >
+          <div className="w-4 flex items-center justify-center">
+            {hoveredTrack === index ? (
+              <Play className="h-4 w-4 text-white fill-white" />
+            ) : (
+              <span className="text-[#b3b3b3] text-sm font-medium">{index + 1}</span>
+            )}
+          </div>
+
+          <div className="relative">
+            <img
+              src={track.albumImageUrl || "/placeholder.svg"}
+              alt={`${track.title} album cover`}
+              className="h-12 w-12 rounded object-cover"
+            />
+          </div>
+
+          <div className="flex-1 min-w-0">
+            <h3 className="font-medium text-white truncate group-hover:text-white transition-colors">{track.title}</h3>
+            <p className="text-sm text-[#b3b3b3] truncate group-hover:text-white transition-colors">{track.artist}</p>
+          </div>
+
+          <div className="opacity-0 group-hover:opacity-100 transition-opacity">
             <a
               href={track.songUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors p-2"
+              className="text-[#b3b3b3] hover:text-white transition-colors p-2"
               aria-label={`Open ${track.title} in Spotify`}
+              onClick={(e) => e.stopPropagation()}
             >
               <ExternalLink className="h-4 w-4" />
             </a>
-          </CardContent>
-        </Card>
+          </div>
+        </div>
       ))}
     </div>
   )

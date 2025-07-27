@@ -41,7 +41,7 @@ export default function MusicPage() {
             </BreadcrumbList>
           </Breadcrumb>
         </header>
-        <div className='flex flex-1 flex-col gap-4 p-4'>
+        <div className='flex flex-1 flex-col gap-4 p-4 bg-[#121212]'>
           <div className='mt-10 mb-40'>
             <BlurFade delay={0.09}>
               <h1 className='font-medium text-2xl mb-8 tracking-tighter'>
@@ -51,11 +51,12 @@ export default function MusicPage() {
             <BlurFade className='mb-10'>
               <NowPlaying />
             </BlurFade>
-            <h1 className='font-medium text-xl mb-8 tracking-tighter'>
-              Top Tracks
-            </h1>
-            <TopTracks />
-
+            <div className='bg-gradient-to-b from-[#1f1f1f] to-[#121212] rounded-lg p-6'>
+              <h2 className='font-medium text-xl mb-8 tracking-tighter'>
+                Top Tracks
+              </h2>
+              <TopTracks />
+            </div>
           </div>
         </div>
       </SidebarInset>

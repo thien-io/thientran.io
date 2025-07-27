@@ -185,6 +185,16 @@ table {
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Custom Spotify-inspired colors for light mode */
+    --spotify-bg: 255 255 255;
+    --spotify-card: 248 250 252;
+    --spotify-card-hover: 241 245 249;
+    --spotify-text-primary: 15 23 42;
+    --spotify-text-secondary: 100 116 139;
+    --spotify-text-muted: 148 163 184;
+    --spotify-green: 29 185 84;
+    --spotify-green-hover: 30 215 96;
     
   }
   .dark {
@@ -220,6 +230,16 @@ table {
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Custom Spotify-inspired colors for dark mode */
+    --spotify-bg: 18 18 18;
+    --spotify-card: 31 31 31;
+    --spotify-card-hover: 42 42 42;
+    --spotify-text-primary: 255 255 255;
+    --spotify-text-secondary: 179 179 179;
+    --spotify-text-muted: 83 83 83;
+    --spotify-green: 29 185 84;
+    --spotify-green-hover: 30 215 96;
   }
 }
 
@@ -229,6 +249,7 @@ table {
   }
   body {
     @apply bg-background text-foreground;
-    background: #121212;
+    background: rgb(var(--spotify-bg));
+    transition: background-color 0.3s ease;
   }
 }

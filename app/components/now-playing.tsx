@@ -67,7 +67,7 @@ export function NowPlaying() {
 
   if (isLoading) {
     return (
-      <div className="bg-gradient-to-r from-[#1f1f1f] to-[#2a2a2a] rounded-lg p-6">
+      <div className="bg-gradient-to-r from-zinc-100 to-zinc-200 dark:from-zinc-800 dark:to-zinc-700 rounded-lg p-6 transition-colors duration-300">
         <div className="flex items-center justify-between mb-4">
           <Skeleton className="h-6 w-32" />
           <Skeleton className="h-8 w-8 rounded" />
@@ -86,15 +86,15 @@ export function NowPlaying() {
 
   if (error) {
     return (
-      <div className="bg-gradient-to-r from-[#1f1f1f] to-[#2a2a2a] rounded-lg p-6">
+      <div className="bg-gradient-to-r from-zinc-100 to-zinc-200 dark:from-zinc-800 dark:to-zinc-700 rounded-lg p-6 hover:from-zinc-200 hover:to-zinc-300 dark:hover:from-zinc-700 dark:hover:to-zinc-600 transition-all duration-300">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-xl font-bold text-white">Error</h2>
+          <h2 className="text-xl font-bold text-zinc-900 dark:text-white">Error</h2>
         </div>
-        <p className="text-[#b3b3b3] mb-4">{error}</p>
+        <p className="text-zinc-600 dark:text-zinc-400 mb-4">{error}</p>
         <Button
           onClick={handleManualRefresh}
           disabled={isRefreshing}
-          className="bg-[#1db954] hover:bg-[#1ed760] text-white"
+          className="bg-green-600 hover:bg-green-700 text-white"
         >
           <RefreshCw className={`mr-2 h-4 w-4 ${isRefreshing ? "animate-spin" : ""}`} />
           Try Again
@@ -105,30 +105,34 @@ export function NowPlaying() {
 
   if (!nowPlaying || !nowPlaying.isPlaying) {
     return (
-      <div className="bg-gradient-to-r from-[#1f1f1f] to-[#2a2a2a] rounded-lg p-6 hover:from-[#252525] hover:to-[#2f2f2f] transition-all duration-300">
+      <div className="bg-gradient-to-r from-zinc-100 to-zinc-200 dark:from-zinc-800 dark:to-zinc-700 rounded-lg p-6 hover:from-zinc-200 hover:to-zinc-300 dark:hover:from-zinc-700 dark:hover:to-zinc-600 transition-all duration-300">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-xl font-bold text-white">Not Playing</h2>
+          <h2 className="text-xl font-bold text-zinc-900 dark:text-white">Not Playing</h2>
           <Button
             variant="outline"
             size="sm"
             onClick={handleManualRefresh}
             disabled={isRefreshing}
-            className="border-[#535353] text-[#b3b3b3] hover:border-white hover:text-white bg-transparent"
+            className="border-zinc-300 dark:border-zinc-600 text-zinc-600 dark:text-zinc-400 hover:border-zinc-400 dark:hover:border-zinc-500 hover:text-zinc-900 dark:hover:text-white bg-transparent"
           >
             <RefreshCw className={`h-4 w-4 ${isRefreshing ? "animate-spin" : ""}`} />
           </Button>
         </div>
-        <p className="text-[#b3b3b3]">Spotify is currently not playing any tracks.</p>
-        {lastUpdated && <p className="text-xs text-[#535353] mt-4">Last updated: {lastUpdated.toLocaleTimeString()}</p>}
+        <p className="text-zinc-600 dark:text-zinc-400">Spotify is currently not playing any tracks.</p>
+        {lastUpdated && (
+          <p className="text-xs text-zinc-500 dark:text-zinc-500 mt-4">
+            Last updated: {lastUpdated.toLocaleTimeString()}
+          </p>
+        )}
       </div>
     )
   }
 
   return (
-    <div className="bg-gradient-to-r from-[#1f1f1f] to-[#2a2a2a] rounded-lg p-6 hover:from-[#252525] hover:to-[#2f2f2f] transition-all duration-300">
+    <div className="bg-gradient-to-r from-zinc-100 to-zinc-200 dark:from-zinc-800 dark:to-zinc-700 rounded-lg p-6 hover:from-zinc-200 hover:to-zinc-300 dark:hover:from-zinc-700 dark:hover:to-zinc-600 transition-all duration-300">
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center">
-          <h2 className="text-xl font-bold text-white mr-3">Now Playing</h2>
+          <h2 className="text-xl font-bold text-zinc-900 dark:text-white mr-3">Now Playing</h2>
           <SoundBars />
         </div>
         <Button
@@ -136,7 +140,7 @@ export function NowPlaying() {
           size="sm"
           onClick={handleManualRefresh}
           disabled={isRefreshing}
-          className="border-[#535353] text-[#b3b3b3] hover:border-white hover:text-white bg-transparent"
+          className="border-zinc-300 dark:border-zinc-600 text-zinc-600 dark:text-zinc-400 hover:border-zinc-400 dark:hover:border-zinc-500 hover:text-zinc-900 dark:hover:text-white bg-transparent"
         >
           <RefreshCw className={`h-4 w-4 ${isRefreshing ? "animate-spin" : ""}`} />
         </Button>
@@ -151,9 +155,9 @@ export function NowPlaying() {
           />
         )}
         <div className="flex-1 min-w-0">
-          <h3 className="font-semibold text-white text-lg truncate mb-1">{nowPlaying.title}</h3>
-          <p className="text-[#b3b3b3] truncate mb-1">{nowPlaying.artist}</p>
-          <p className="text-xs text-[#535353] truncate">{nowPlaying.album}</p>
+          <h3 className="font-semibold text-zinc-900 dark:text-white text-lg truncate mb-1">{nowPlaying.title}</h3>
+          <p className="text-zinc-600 dark:text-zinc-400 truncate mb-1">{nowPlaying.artist}</p>
+          <p className="text-xs text-zinc-500 dark:text-zinc-500 truncate">{nowPlaying.album}</p>
         </div>
       </div>
 
@@ -162,12 +166,14 @@ export function NowPlaying() {
           href={nowPlaying.songUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-sm text-[#b3b3b3] hover:text-white flex items-center transition-colors"
+          className="text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white flex items-center transition-colors"
         >
           Open in Spotify
           <ExternalLink className="ml-1 h-3 w-3" />
         </a>
-        {lastUpdated && <p className="text-xs text-[#535353]">Updated: {lastUpdated.toLocaleTimeString()}</p>}
+        {lastUpdated && (
+          <p className="text-xs text-zinc-500 dark:text-zinc-500">Updated: {lastUpdated.toLocaleTimeString()}</p>
+        )}
       </div>
     </div>
   )

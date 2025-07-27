@@ -41,20 +41,20 @@ export default function MusicPage() {
             </BreadcrumbList>
           </Breadcrumb>
         </header>
-        <div className='flex flex-1 flex-col gap-4 p-4 bg-[#121212]'>
+        <div className='flex flex-1 flex-col gap-4 p-4 '>
           <div className='mt-10 mb-40'>
             <BlurFade delay={0.09}>
-              <h1 className='font-medium text-2xl mb-8 tracking-tighter'>
+              <h1 className='text-4xl font-bold text-zinc-900 dark:text-white mb-8'>
                 Music
               </h1>
             </BlurFade>
             <BlurFade className='mb-10'>
               <NowPlaying />
             </BlurFade>
-            <div className='bg-gradient-to-b from-[#1f1f1f] to-[#121212] rounded-lg p-6'>
-              <h2 className='font-medium text-xl mb-8 tracking-tighter'>
+            <div className='bg-gradient-to-b from-zinc-50 to-white dark:from-zinc-800 dark:to-zinc-900 rounded-lg p-6 transition-colors duration-300'>
+              <h1 className='text-2xl font-semibold text-zinc-900 dark:text-white mb-6'>
                 Top Tracks
-              </h2>
+              </h1>
               <TopTracks />
             </div>
           </div>

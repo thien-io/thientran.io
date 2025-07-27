@@ -13,6 +13,7 @@ import Blog from '../blog/blog';
 import Photos from '@/photos/photos';
 import Contact from '@/contact/contact';
 import { NowPlaying } from './now-playing';
+import { TopTracks } from './top-tracks';
 import { contact } from '@/data/contact';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -70,11 +71,15 @@ export function HeroTabs() {
         <Blog />
       </TabsContent>
       <TabsContent value='music'>
-        <BlurFade delay={0.2}>
-        <NowPlaying />
+        <BlurFade delay={0.2} className='space-y-6'>
+          <NowPlaying />
+          <div className='bg-gradient-to-b from-zinc-50 to-white dark:from-zinc-800 dark:to-zinc-900 rounded-lg p-6 transition-colors duration-300'>
+            <h1 className='text-2xl font-semibold text-zinc-900 dark:text-white mb-6'>
+              Top Tracks
+            </h1>
+            <TopTracks />
+          </div>
         </BlurFade>
-
-
       </TabsContent>
       <TabsContent value='contact'>
         <Contact />

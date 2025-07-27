@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useCallback } from "react"
+import { useState, useEffect, useCallback, useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { Skeleton } from "@/components/ui/skeleton"
 import { RefreshCw } from "lucide-react"
@@ -23,11 +23,17 @@ export function NowPlaying() {
   const [isRefreshing, setIsRefreshing] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [lastUpdated, setLastUpdated] = useState<Date | null>(null)
+  const [currentProgress, setCurrentProgress] = useState(0)
+  const progressIntervalRef = useRef<NodeJS.Timeout | null>(null)
+  const lastFetchTimeRef = useRef<number>(0)
 
   const fetchNowPlaying = useCallback(async (showRefreshing = false) => {
     try {
       if (showRefreshing) setIsRefreshing(true)
       setError(null)
+
+      const fetchTime = Date.now()
+      lastFetchTimeRef.current = fetchTime
 
       const response = await fetch("/api/spotify/now-playing", {
         cache: "no-store",
@@ -41,8 +47,17 @@ export function NowPlaying() {
       }
 
       const data = await response.json()
+
+      console.log("Received data:", data) // Debug log
+
       setNowPlaying(data)
       setLastUpdated(new Date())
+
+      // Set initial progress
+      if (data.progress_ms !== undefined) {
+        setCurrentProgress(data.progress_ms)
+      }
+
       setIsLoading(false)
     } catch (error) {
       console.error("Error fetching now playing:", error)
@@ -53,6 +68,29 @@ export function NowPlaying() {
     }
   }, [])
 
+  // Update progress in real-time when music is playing
+  useEffect(() => {
+    if (progressIntervalRef.current) {
+      clearInterval(progressIntervalRef.current)
+    }
+
+    if (nowPlaying?.isPlaying && nowPlaying.duration_ms && nowPlaying.progress_ms !== undefined) {
+      progressIntervalRef.current = setInterval(() => {
+        setCurrentProgress((prev) => {
+          const newProgress = prev + 1000 // Add 1 second
+          // Don't exceed the duration
+          return Math.min(newProgress, nowPlaying.duration_ms || 0)
+        })
+      }, 1000)
+    }
+
+    return () => {
+      if (progressIntervalRef.current) {
+        clearInterval(progressIntervalRef.current)
+      }
+    }
+  }, [nowPlaying?.isPlaying, nowPlaying?.duration_ms, nowPlaying?.progress_ms])
+
   useEffect(() => {
     fetchNowPlaying()
 
@@ -60,7 +98,12 @@ export function NowPlaying() {
       fetchNowPlaying()
     }, 30000)
 
-    return () => clearInterval(interval)
+    return () => {
+      clearInterval(interval)
+      if (progressIntervalRef.current) {
+        clearInterval(progressIntervalRef.current)
+      }
+    }
   }, [fetchNowPlaying])
 
   const handleManualRefresh = () => {
@@ -157,9 +200,8 @@ export function NowPlaying() {
     )
   }
 
-  // Calculate progress percentage
-  const progressPercentage =
-    nowPlaying.progress_ms && nowPlaying.duration_ms ? (nowPlaying.progress_ms / nowPlaying.duration_ms) * 100 : 0
+  // Calculate progress percentage using current progress
+  const progressPercentage = nowPlaying.duration_ms ? (currentProgress / nowPlaying.duration_ms) * 100 : 0
 
   return (
     <div className="w-full max-w-sm mx-auto bg-white dark:bg-zinc-900 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 shadow-lg">
@@ -199,16 +241,27 @@ export function NowPlaying() {
         <div className="space-y-2 px-1">
           <div className="w-full bg-zinc-200 dark:bg-zinc-700 rounded-full h-1.5 sm:h-2">
             <div
-              className="bg-green-500 h-1.5 sm:h-2 rounded-full transition-all duration-1000 ease-linear"
-              style={{ width: `${progressPercentage}%` }}
+              className="bg-green-500 h-1.5 sm:h-2 rounded-full transition-all duration-300 ease-linear"
+              style={{ width: `${Math.min(progressPercentage, 100)}%` }}
             />
           </div>
 
           <div className="flex justify-between text-xs sm:text-sm text-zinc-600 dark:text-zinc-400">
-            <span>{nowPlaying.progress_ms ? formatTime(nowPlaying.progress_ms) : "0:00"}</span>
+            <span>{formatTime(currentProgress)}</span>
             <span>{nowPlaying.duration_ms ? formatTime(nowPlaying.duration_ms) : "0:00"}</span>
           </div>
         </div>
+
+        {/* Debug Info (remove in production) */}
+        {process.env.NODE_ENV === "development" && (
+          <div className="text-xs text-zinc-500 space-y-1">
+            <p>
+              Progress: {currentProgress}ms / {nowPlaying.duration_ms}ms
+            </p>
+            <p>Percentage: {progressPercentage.toFixed(1)}%</p>
+            <p>Is Playing: {nowPlaying.isPlaying ? "Yes" : "No"}</p>
+          </div>
+        )}
 
         {/* Spotify Link */}
         {nowPlaying.songUrl && (

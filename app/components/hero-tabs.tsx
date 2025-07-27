@@ -73,8 +73,8 @@ export function HeroTabs() {
       <TabsContent value='music'>
         <BlurFade delay={0.2} className='space-y-6'>
           <NowPlaying />
-          <div className='bg-gradient-to-b from-zinc-50 to-white dark:from-zinc-800 dark:to-zinc-900 rounded-lg p-6 transition-colors duration-300'>
-            <h1 className='text-2xl font-semibold text-zinc-900 dark:text-white mb-6'>
+          <div className=' transition-colors duration-300'>
+            <h1 className='text-xl font-semibold text-zinc-900 dark:text-white pb-6 pt-6 '>
               Top Tracks
             </h1>
             <TopTracks />

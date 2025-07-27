@@ -36,7 +36,7 @@ export function TopTracks() {
     return (
       <div className="space-y-2">
         {Array.from({ length: 10 }).map((_, index) => (
-          <div key={index} className="flex items-center space-x-4 p-2 rounded-md">
+          <div key={index} className="flex items-center space-x-2 rounded-md">
             <Skeleton className="h-4 w-4" />
             <Skeleton className="h-12 w-12 rounded" />
             <div className="flex-1 space-y-1">
@@ -54,13 +54,13 @@ export function TopTracks() {
       {tracks.map((track, index) => (
         <div
           key={index}
-          className="group flex items-center space-x-4 p-2 rounded-md hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-200 cursor-pointer"
+          className="group flex items-center space-x-4 p-1 rounded-md hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-200 cursor-pointer"
           onMouseEnter={() => setHoveredTrack(index)}
           onMouseLeave={() => setHoveredTrack(null)}
         >
-          <div className="w-4 flex items-center justify-center">
+          <div className="w-4 flex items-center justify-center pl-1">
             {hoveredTrack === index ? (
-              <Play className="h-4 w-4 text-zinc-900 dark:text-white fill-zinc-900 dark:fill-white" />
+              <Play className="h-4 w-4 text-zinc-900 dark:text-white fill-zinc-900 dark:fill-white " />
             ) : (
               <span className="text-zinc-500 dark:text-zinc-400 text-sm font-medium">{index + 1}</span>
             )}
@@ -75,7 +75,7 @@ export function TopTracks() {
           </div>
 
           <div className="flex-1 min-w-0">
-            <h3 className="font-medium text-zinc-900 dark:text-white truncate group-hover:text-zinc-900 dark:group-hover:text-white transition-colors">
+            <h3 className="text-sm text-zinc-900 dark:text-white truncate group-hover:text-zinc-900 dark:group-hover:text-white transition-colors">
               {track.title}
             </h3>
             <p className="text-sm text-zinc-600 dark:text-zinc-400 truncate group-hover:text-zinc-700 dark:group-hover:text-zinc-300 transition-colors">
@@ -88,7 +88,7 @@ export function TopTracks() {
               href={track.songUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors p-2"
+              className="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors p-2 pr-4"
               aria-label={`Open ${track.title} in Spotify`}
               onClick={(e) => e.stopPropagation()}
             >

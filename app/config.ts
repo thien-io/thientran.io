@@ -11,7 +11,7 @@ export const socialLinks = {
   twitter: "https://x.com/thien_io",
   github: "https://github.com/thien-io",
   discord: "https://discord.gg/thien-io",
-  instagram: "https://www.instagram.com/thien.io",
+  instagram: "https://www.instagram.com/thientran.io",
   linkedin: "https://www.linkedin.com/in/thienio/",
   email: "mailto:hello@thientran.io",
 };
@@ -20,10 +20,10 @@ export const socialLinks = {
 export const config = {
   github: {
     user: {
-      endpoint: 'https://api.github.com/users/thienjs',
+      endpoint: 'https://api.github.com/users/thien-io',
     },
     repo: {
-      endpoint: 'https://api.github.com/users/thienjs/repos',
+      endpoint: 'https://api.github.com/users/thien-io/repos',
     },
   },
   game: {

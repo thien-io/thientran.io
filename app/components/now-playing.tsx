@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Button } from "@/components/ui/button"
 import { Skeleton } from "@/components/ui/skeleton"
 import { ExternalLink, RefreshCw } from "lucide-react"
+import { SoundBars } from "@/components/sound-bars"
 
 interface NowPlayingData {
   isPlaying: boolean
@@ -74,8 +75,12 @@ export function NowPlaying() {
             <Skeleton className="h-4 w-[200px]" />
           </CardTitle>
         </CardHeader>
-        <CardContent>
-          <Skeleton className="h-[100px] w-full" />
+        <CardContent className="flex items-center space-x-4">
+          <Skeleton className="h-20 w-20 rounded-md" />
+          <div className="flex-1 space-y-2">
+            <Skeleton className="h-4 w-3/4" />
+            <Skeleton className="h-3 w-1/2" />
+          </div>
         </CardContent>
       </Card>
     )
@@ -124,10 +129,8 @@ export function NowPlaying() {
       <CardHeader className="flex flex-row items-center justify-between">
         <CardTitle className="flex items-center">
           Now Playing
-          <div className="ml-2 flex space-x-1">
-            <div className="w-1 h-1 bg-green-500 rounded-full animate-pulse"></div>
-            <div className="w-1 h-1 bg-green-500 rounded-full animate-pulse" style={{ animationDelay: "0.2s" }}></div>
-            <div className="w-1 h-1 bg-green-500 rounded-full animate-pulse" style={{ animationDelay: "0.4s" }}></div>
+          <div className="ml-3">
+            <SoundBars />
           </div>
         </CardTitle>
         <Button variant="outline" size="sm" onClick={handleManualRefresh} disabled={isRefreshing}>
@@ -139,10 +142,10 @@ export function NowPlaying() {
           <img
             src={nowPlaying.albumImageUrl || "/placeholder.svg"}
             alt={`${nowPlaying.album} album cover`}
-            className="h-20 w-20 rounded-md"
+            className="h-20 w-20 rounded-md object-cover"
           />
         )}
-        <div className="flex-1">
+        <div className="flex-1 min-w-0">
           <h3 className="font-semibold truncate">{nowPlaying.title}</h3>
           <p className="text-sm text-muted-foreground truncate">{nowPlaying.artist}</p>
           <p className="text-xs text-muted-foreground truncate">{nowPlaying.album}</p>
@@ -153,7 +156,7 @@ export function NowPlaying() {
           href={nowPlaying.songUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-sm text-muted-foreground hover:text-primary flex items-center"
+          className="text-sm text-muted-foreground hover:text-primary flex items-center transition-colors"
         >
           Open in Spotify
           <ExternalLink className="ml-1 h-3 w-3" />

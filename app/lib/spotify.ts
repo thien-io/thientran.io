@@ -4,8 +4,9 @@ const refresh_token = process.env.SPOTIFY_REFRESH_TOKEN
 
 const basic = Buffer.from(`${client_id}:${client_secret}`).toString("base64")
 const TOKEN_ENDPOINT = `https://accounts.spotify.com/api/token`
-const TOP_TRACKS_ENDPOINT = `https://api.spotify.com/v1/me/top/tracks`
+const TOP_TRACKS_ENDPOINT = `https://api.spotify.com/v1/me/top/tracks?limit=50`
 const NOW_PLAYING_ENDPOINT = `https://api.spotify.com/v1/me/player/currently-playing`
+const PLAYLISTS_ENDPOINT = `https://api.spotify.com/v1/me/playlists?limit=50`
 
 export async function getAccessToken() {
   const response = await fetch(TOKEN_ENDPOINT, {
@@ -35,6 +36,18 @@ export async function getTopTracks() {
   return response.json()
 }
 
+export async function getPlaylists() {
+  const { access_token } = await getAccessToken()
+
+  const response = await fetch(PLAYLISTS_ENDPOINT, {
+    headers: {
+      Authorization: `Bearer ${access_token}`,
+    },
+  })
+
+  return response.json()
+}
+
 export async function getNowPlaying() {
   const { access_token } = await getAccessToken()
 
@@ -49,14 +62,6 @@ export async function getNowPlaying() {
   }
 
   const data = await response.json()
-
-  // Log the data to debug what we're receiving
-  console.log("Spotify API Response:", {
-    is_playing: data.is_playing,
-    progress_ms: data.progress_ms,
-    duration_ms: data.item?.duration_ms,
-    item_exists: !!data.item,
-  })
 
   return {
     isPlaying: data.is_playing,

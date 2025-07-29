@@ -18,6 +18,8 @@ import {
 } from '@/components/ui/sidebar';
 import { NowPlaying } from '@/components/now-playing';
 import { TopTracks } from '@/components/top-tracks';
+import { PlaylistCarousel } from '@/components/playlist-carousel';
+import { AlbumCarousel } from '@/components/album-carousel';
 
 export default function MusicPage() {
   return (
@@ -47,16 +49,18 @@ export default function MusicPage() {
               <h1 className='text-4xl font-bold text-zinc-900 dark:text-white mb-8'>
                 Music
               </h1>
-            </BlurFade>
-            <BlurFade className='mb-10'>
+            
+            <div className='mb-10'>
               <NowPlaying />
-            </BlurFade>
+              <PlaylistCarousel />
+            </div>
             <div className='bg-gradient-to-b from-zinc-50 to-white dark:from-zinc-800 dark:to-zinc-900 rounded-lg p-6 transition-colors duration-300'>
               <h1 className='text-2xl font-semibold text-zinc-900 dark:text-white mb-6'>
                 Top Tracks
               </h1>
               <TopTracks />
             </div>
+            </BlurFade>
           </div>
         </div>
       </SidebarInset>

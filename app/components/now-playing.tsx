@@ -165,7 +165,7 @@ export function NowPlaying() {
 
   if (isLoading) {
     return (
-      <div className="w-full bg-zinc-800 dark:bg-zinc-900 rounded-xl p-4 shadow-lg">
+      <div className="w-full bg-zinc-800 dark:bg-zinc-900 rounded-xl p-4 shadow-lg max-w-80">
         <div className="flex items-center space-x-4">
           <Skeleton className="h-12 w-12 rounded-lg flex-shrink-0" />
           <div className="flex-1 space-y-2">
@@ -184,7 +184,7 @@ export function NowPlaying() {
 
   if (error) {
     return (
-      <div className="w-full bg-zinc-800 dark:bg-zinc-900 rounded-xl p-4 shadow-lg">
+      <div className="w-full bg-zinc-800 dark:bg-zinc-900 rounded-xl p-4 shadow-lg max-w-80">
         <div className="flex items-center justify-between">
           <span className="text-white text-sm">Failed to load</span>
           <Button
@@ -241,7 +241,7 @@ export function NowPlaying() {
   const progressPercentage = nowPlaying.duration_ms ? (currentProgress / nowPlaying.duration_ms) * 100 : 0
 
   return (
-    <div className="w-full bg-zinc-800 dark:bg-zinc-900 rounded-xl p-4 shadow-lg">
+    <div className="w-full bg-zinc-800 dark:bg-zinc-900 rounded-xl p-4 shadow-lg max-w-80">
       <div className="flex items-center space-x-4">
         {/* Album Art */}
         <img

@@ -55,7 +55,7 @@ const contactMethods: ContactMethod[] = [
   {
     id: "instagram",
     name: "Instagram",
-    username: "@thienran.io",
+    username: "@thientran.io",
     url: "https://instagram.com/thientran.io",
     icon: <Instagram className="h-6 w-6" />,
     color: "#E4405F", // Instagram Pink
@@ -249,7 +249,7 @@ export function ContactIcons() {
                   transition: { duration: 0.2 },
                 }}
               >
-                <p className="text-sm font-medium text-gray-900 dark:text-white transition-colors duration-300">
+                <p className="text-sm font-light text-gray-900 dark:text-white transition-colors duration-300">
                   {method.username}
                 </p>
                 <motion.p

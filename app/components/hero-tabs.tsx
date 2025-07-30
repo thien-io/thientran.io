@@ -25,6 +25,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { ImageGrid } from '@/components/image-grid';
 import { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
+import { ContactIcons } from './contact-icons';
 interface TabProps {
   text: string;
   selected: boolean;
@@ -82,7 +83,7 @@ export function HeroTabs() {
         </BlurFade>
       </TabsContent>
       <TabsContent value='contact'>
-        <Contact />
+        <ContactIcons />
       </TabsContent>
     </Tabs>
   );

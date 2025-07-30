@@ -32,6 +32,7 @@ export const metadata: Metadata = {
   description: 'My Contacts',
 };
 import Contact from '@/contact/contact';
+import { ContactIcons } from '@/components/contact-icons';
 
 export default function ContactPage() {
   return (
@@ -62,7 +63,7 @@ export default function ContactPage() {
                 Contacts
               </h1>
             </BlurFade>
-            <Contact />
+            <ContactIcons />
           </div>
         </div>
       </SidebarInset>

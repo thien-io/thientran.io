@@ -105,11 +105,6 @@ const data = {
       icon: Image,
     },
 
-    {
-      name: 'Music',
-      url: '/music',
-      icon: Music4,
-    },
 
     {
       name: 'Contact',

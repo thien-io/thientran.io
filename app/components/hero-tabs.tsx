@@ -53,8 +53,8 @@ export function HeroTabs() {
   let allBlogs = getBlogPosts();
 
   return (
-    <Tabs defaultValue='start' className='pr-'>
-      <TabsList className='flex flex-col items-start mt-40 mb-20 bg-transparent -ml-4 '>
+    <Tabs defaultValue='start' className='pr- '>
+      <TabsList className='flex flex-col items-start mt-40 mb-40 bg-transparent -ml-4 '>
         <TabsTrigger value='about'>About</TabsTrigger>
         <TabsTrigger value='blog'>Blog</TabsTrigger>
         <TabsTrigger value='music'>Music</TabsTrigger>
@@ -73,11 +73,10 @@ export function HeroTabs() {
       </TabsContent>
       <TabsContent value='music'>
         <BlurFade delay={0.2} className='space-y-6'>
+
           <NowPlaying />
           <div className=' transition-colors duration-300'>
-            <h1 className='text-xl font-semibold text-zinc-900 dark:text-white pb-6 pt-6 '>
-              Top Tracks
-            </h1>
+
             <TopTracks />
           </div>
         </BlurFade>

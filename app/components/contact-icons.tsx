@@ -281,7 +281,6 @@ export function ContactIcons() {
         }}
         className="text-center mt-16 mb-8"
       >
-        <p className="text-sm text-gray-500 dark:text-gray-400">Tap any icon to connect</p>
       </motion.div>
     </div>
   )

@@ -5,6 +5,8 @@ import type React from "react"
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Mail, Github, Linkedin, Instagram, DiscIcon as Discord, CreditCardIcon as Venmo, Check } from "lucide-react" // Using Disc and CreditCard for Discord and Venmo
+import { FaDiscord, } from "react-icons/fa6"
+import { IoLogoVenmo, IoLogoGithub, IoLogoLinkedin, IoLogoInstagram, IoMail } from 'react-icons/io5';
 import { Skeleton } from "@/components/ui/skeleton"
 
 interface ContactMethod {
@@ -23,7 +25,7 @@ const contactMethods: ContactMethod[] = [
     name: "Email",
     username: "hello@thientran.io",
     url: "mailto:hello@thientran.io",
-    icon: <Mail className="h-6 w-6" />,
+    icon: <IoMail className="h-6 w-6" />,
     color: "#3B82F6", // Blue
     copyable: true,
   },
@@ -40,7 +42,7 @@ const contactMethods: ContactMethod[] = [
     name: "GitHub",
     username: "@thien-io",
     url: "https://github.com/thien-io",
-    icon: <Github className="h-6 w-6" />,
+    icon: <IoLogoGithub className="h-6 w-6" />,
     color: "#24292e", // GitHub Dark
   },
   {
@@ -48,7 +50,7 @@ const contactMethods: ContactMethod[] = [
     name: "Discord",
     username: "thien.io",
     url: "https://discord.com/users/thien.io",
-    icon: <Discord className="h-6 w-6" />, // Lucide Disc icon
+    icon: <FaDiscord className="h-6 w-6" />, // Lucide Disc icon
     color: "#5865F2", // Discord Blurple
     copyable: true,
   },
@@ -57,7 +59,7 @@ const contactMethods: ContactMethod[] = [
     name: "Instagram",
     username: "@thientran.io",
     url: "https://instagram.com/thientran.io",
-    icon: <Instagram className="h-6 w-6" />,
+    icon: <IoLogoInstagram className="h-6 w-6" />,
     color: "#E4405F", // Instagram Pink
   },
   {
@@ -65,7 +67,7 @@ const contactMethods: ContactMethod[] = [
     name: "Venmo",
     username: "@thienmtran",
     url: "https://venmo.com/thienmtran",
-    icon: <Venmo className="h-6 w-6" />, // Lucide CreditCard icon
+    icon: <IoLogoVenmo className="h-6 w-6" />, // Lucide CreditCard icon
     color: "#3D95CE", // Venmo Blue
   },
 ]
@@ -177,7 +179,7 @@ export function ContactIcons() {
             >
               {/* Minimalistic Icon Container */}
               <motion.div
-                className="relative w-14 h-14 rounded-full flex items-center justify-center transition-colors duration-300" // Changed to rounded-full, smaller size
+                className="relative w-10 h-10 rounded-sm flex items-center justify-center transition-colors duration-300" // Changed to rounded-full, smaller size
                 style={{
                   backgroundColor: method.color, // Solid color background
                   boxShadow: `0 2px 10px ${method.color}30`, // Simpler, softer shadow
@@ -268,20 +270,7 @@ export function ContactIcons() {
         </AnimatePresence>
       </motion.div>
 
-      {/* Simple footer */}
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{
-          delay: 1.5,
-          duration: 0.8,
-          type: "spring",
-          stiffness: 100,
-          damping: 25,
-        }}
-        className="text-center mt-16 mb-8"
-      >
-      </motion.div>
+    
     </div>
   )
 }

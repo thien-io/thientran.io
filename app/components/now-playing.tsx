@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback, useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { Skeleton } from "@/components/ui/skeleton"
 import { RefreshCw } from "lucide-react"
+import { FaSpotify } from "react-icons/fa6"
 
 interface NowPlayingData {
   isPlaying: boolean
@@ -296,7 +297,7 @@ export function NowPlaying() {
             rel="noopener noreferrer"
             className="text-xs text-green-400 hover:text-green-300 transition-colors"
           >
-            Open in Spotify
+            <FaSpotify/>
           </a>
         </div>
       )}

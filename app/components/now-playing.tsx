@@ -165,7 +165,7 @@ export function NowPlaying() {
 
   if (isLoading) {
     return (
-      <div className="w-full bg-gray-800 dark:bg-gray-900 rounded-xl p-4 shadow-lg">
+      <div className="w-full bg-zinc-800 dark:bg-zinc-900 rounded-xl p-4 shadow-lg">
         <div className="flex items-center space-x-4">
           <Skeleton className="h-12 w-12 rounded-lg flex-shrink-0" />
           <div className="flex-1 space-y-2">
@@ -184,7 +184,7 @@ export function NowPlaying() {
 
   if (error) {
     return (
-      <div className="w-full bg-gray-800 dark:bg-gray-900 rounded-xl p-4 shadow-lg">
+      <div className="w-full bg-zinc-800 dark:bg-zinc-900 rounded-xl p-4 shadow-lg">
         <div className="flex items-center justify-between">
           <span className="text-white text-sm">Failed to load</span>
           <Button
@@ -202,11 +202,11 @@ export function NowPlaying() {
 
   if (!nowPlaying || !nowPlaying.isPlaying) {
     return (
-      <div className="w-full bg-gray-800 dark:bg-gray-900 rounded-xl p-4 shadow-lg">
+      <div className="w-full bg-zinc-800 dark:bg-zinc-900 rounded-sm p-4 shadow-lg max-w-80">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <div className="h-12 w-12 bg-gray-700 rounded-lg flex items-center justify-center">
-              <svg className="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+            <div className="h-12 w-12 bg-zinc-700 rounded-sm flex items-center justify-center">
+              <svg className="w-6 h-6 text-zinc-400" fill="currentColor" viewBox="0 0 20 20">
                 <path
                   fillRule="evenodd"
                   d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.617.816L4.5 13.5H2a1 1 0 01-1-1V7.5a1 1 0 011-1h2.5l3.883-3.316z"
@@ -216,7 +216,7 @@ export function NowPlaying() {
             </div>
             <div>
               <p className="text-white font-medium text-sm">Not Playing</p>
-              <p className="text-gray-400 text-xs">No music currently playing</p>
+              <p className="text-zinc-400 text-xs">No music currently playing</p>
             </div>
           </div>
           <div className="flex items-center space-x-3">
@@ -228,7 +228,7 @@ export function NowPlaying() {
               disabled={isRefreshing}
               size="sm"
               variant="ghost"
-              className="text-gray-400 hover:text-white h-8 w-8 p-0 rounded-full"
+              className="text-zinc-400 hover:text-white h-8 w-8 p-0 rounded-full"
             >
               <RefreshCw className={`h-3 w-3 ${isRefreshing ? "animate-spin" : ""}`} />
             </Button>
@@ -241,7 +241,7 @@ export function NowPlaying() {
   const progressPercentage = nowPlaying.duration_ms ? (currentProgress / nowPlaying.duration_ms) * 100 : 0
 
   return (
-    <div className="w-full bg-gray-800 dark:bg-gray-900 rounded-xl p-4 shadow-lg">
+    <div className="w-full bg-zinc-800 dark:bg-zinc-900 rounded-xl p-4 shadow-lg">
       <div className="flex items-center space-x-4">
         {/* Album Art */}
         <img
@@ -253,7 +253,7 @@ export function NowPlaying() {
         {/* Song Info */}
         <div className="flex-1 min-w-0">
           <h3 className="text-white font-medium text-sm truncate">{nowPlaying.title}</h3>
-          <p className="text-gray-400 text-xs truncate">{nowPlaying.artist}</p>
+          <p className="text-zinc-400 text-xs truncate">{nowPlaying.artist}</p>
         </div>
 
         {/* Sound Bars and Controls */}
@@ -266,7 +266,7 @@ export function NowPlaying() {
             disabled={isRefreshing}
             size="sm"
             variant="ghost"
-            className="text-gray-400 hover:text-white h-8 w-8 p-0 rounded-full"
+            className="text-zinc-400 hover:text-white h-8 w-8 p-0 rounded-full"
           >
             <RefreshCw className={`h-3 w-3 ${isRefreshing ? "animate-spin" : ""}`} />
           </Button>
@@ -275,13 +275,13 @@ export function NowPlaying() {
 
       {/* Progress Bar */}
       <div className="mt-3 space-y-1">
-        <div className="w-full bg-gray-700 rounded-full h-1">
+        <div className="w-full bg-zinc-700 rounded-full h-1">
           <div
             className="bg-green-500 h-1 rounded-full transition-all duration-300 ease-linear"
             style={{ width: `${Math.min(progressPercentage, 100)}%` }}
           />
         </div>
-        <div className="flex justify-between text-xs text-gray-400">
+        <div className="flex justify-between text-xs text-zinc-400">
           <span>{formatTime(currentProgress)}</span>
           <span>{nowPlaying.duration_ms ? formatTime(nowPlaying.duration_ms) : "0:00"}</span>
         </div>

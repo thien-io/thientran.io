@@ -53,7 +53,7 @@ export default function RootLayout({
 }) {
   return (
     <ViewTransitions >
-      <html lang='en' className={cx(GeistSans.variable, GeistMono.variable)}>
+      <html lang='en' className={cx(GeistSans.variable, GeistMono.variable) }>
         <head>
           <link
             rel='alternate'
@@ -74,7 +74,7 @@ export default function RootLayout({
             title='JSON Feed'
           />
         </head>
-        <body className='flex h-screen items-center justify-center flex-col  '>
+        <body className='flex h-screen items-center justify-center flex-col overflow-x-hidden '>
           <ThemeProvider
             attribute='class'
             defaultTheme='system'
@@ -84,7 +84,7 @@ export default function RootLayout({
             <main className='flex flex-1 flex-col gap-4 p-3 pt-0 w-full h-screen'>
               
 
-                <div className=' w-full'>{children}</div>
+                <div className=' w-full overflow-x-hidden'>{children}</div>
              
               <Analytics />
               <SpeedInsights />

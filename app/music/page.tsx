@@ -43,26 +43,32 @@ export default function MusicPage() {
             </BreadcrumbList>
           </Breadcrumb>
         </header>
-        <div className='flex flex-1 flex-col gap-4 p-4 '>
-          <div className='mt-10 mb-40'>
-            <BlurFade delay={0.09}>
-              <h1 className='text-4xl font-bold text-zinc-900 dark:text-white mb-8'>
-                Music
-              </h1>
-            
-            <div className='mb-10'>
-              <NowPlaying />
-              <PlaylistCarousel />
-            </div>
-            <div className='bg-gradient-to-b from-zinc-50 to-white dark:from-zinc-800 dark:to-zinc-900 rounded-lg p-6 transition-colors duration-300'>
-              <h1 className='text-2xl font-semibold text-zinc-900 dark:text-white mb-6'>
-                Top Tracks
-              </h1>
-              <TopTracks />
-            </div>
-            </BlurFade>
-          </div>
+      <div className="space-y-6 md:space-y-8 w-full min-h-screen overflow-x-hidden max-w-full">
+        <div className="px-4 max-w-full">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight mt-20">Music</h1>
+          <p className="text-sm md:text-base text-muted-foreground mt-1">
+            Discover my top tracks, playlists, and what I'm currently listening to
+          </p>
         </div>
+
+        {/* Now Playing - Compact Horizontal */}
+        <div className="px-4 max-w-full">
+          <NowPlaying />
+        </div>
+
+        {/* Public Playlists */}
+        <div className="w-full max-w-full overflow-x-hidden">
+          <div className="px-4 mb-4 md:mb-6">
+            <h2 className="text-xl sm:text-xl md:text-2xl font-semibold">My Playlists</h2>
+          </div>
+          <PlaylistCarousel />
+        </div>
+
+        {/* Top 50 Tracks */}
+        <div className="w-full max-w-full overflow-x-hidden pb-6">
+          <TopTracks />
+        </div>
+      </div>
       </SidebarInset>
     </SidebarProvider>
   );

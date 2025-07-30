@@ -25,9 +25,9 @@ export function TopTracks() {
     async function fetchTopTracks() {
       try {
         const response = await fetch("/api/spotify/top-tracks", {
-          cache: "no-store", // Prevent caching in the browser
+          cache: "no-store",
           headers: {
-            "Cache-Control": "no-cache", // Ensure no caching
+            "Cache-Control": "no-cache",
           },
         })
         const data = await response.json()
@@ -44,25 +44,27 @@ export function TopTracks() {
 
   if (isLoading) {
     return (
-      <div className="space-y-6 md:space-y-8 w-full max-w-full">
+      <div className="space-y-6 md:space-y-8 w-full">
         <div className="space-y-4">
-          <div className="flex items-center space-x-2 px-2">
+          <div className="flex items-center space-x-2 px-4">
             <Skeleton className="h-5 md:h-6 w-32 md:w-48" />
             <Skeleton className="h-4 w-4 rounded" />
           </div>
-          <div className="flex space-x-3 md:space-x-4 overflow-hidden">
-            {Array.from({ length: 8 }).map((_, index) => (
-              <div key={index} className="flex-shrink-0">
-                <Skeleton className="h-28 w-28 sm:h-32 sm:w-32 md:h-36 md:w-36 rounded-lg" />
-                <div className="mt-2 space-y-1">
-                  <Skeleton className="h-3 w-24 md:w-32" />
-                  <Skeleton className="h-2 md:h-3 w-16 md:w-24" />
+          <div className="w-full overflow-hidden">
+            <div className="flex space-x-3 md:space-x-4 px-3 md:px-12">
+              {Array.from({ length: 8 }).map((_, index) => (
+                <div key={index} className="flex-shrink-0">
+                  <Skeleton className="h-28 w-28 sm:h-32 sm:w-32 md:h-36 md:w-36 rounded-lg" />
+                  <div className="mt-2 space-y-1">
+                    <Skeleton className="h-3 w-24 md:w-32" />
+                    <Skeleton className="h-2 md:h-3 w-16 md:w-24" />
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
-        <div className="space-y-2">
+        <div className="space-y-2 px-4">
           <Skeleton className="h-5 md:h-6 w-24 md:w-32" />
           {Array.from({ length: 10 }).map((_, index) => (
             <div key={index} className="flex items-center space-x-3 p-2 rounded-md">
@@ -83,19 +85,19 @@ export function TopTracks() {
   const displayedTracks = showAll ? tracks : tracks.slice(0, 20)
 
   return (
-    <div className="space-y-6 md:space-y-8 w-full max-w-full">
+    <div className="space-y-6 md:space-y-8 w-full">
       {/* Album Carousel - Now showing all 50 tracks */}
       <div className="w-full">
-        <div className="flex items-center space-x-2 mb-4 md:mb-6 px-2">
-          <h3 className="text-base md:text-lg font-semibold text-gray-900 dark:text-white">Top 50 Album Art Gallery</h3>
+        <div className="flex items-center space-x-2 mb-4 md:mb-6 px-4">
+          <h3 className="text-base md:text-lg font-semibold text-zinc-900 dark:text-white">Top 50 Album Art Gallery</h3>
           <TrendingUp className="h-4 w-4 text-green-600 dark:text-green-400" />
         </div>
         <AlbumCarousel tracks={tracks} />
 
         {/* Gallery stats */}
-        <div className="flex justify-center mt-4 px-2">
-          <div className="bg-gray-100 dark:bg-gray-800 rounded-full px-4 py-2">
-            <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400">
+        <div className="flex justify-center mt-4 px-4">
+          <div className="bg-zinc-100 dark:bg-zinc-800 rounded-full px-4 py-2">
+            <p className="text-xs md:text-sm text-zinc-600 dark:text-zinc-400">
               Showing all {tracks.length} albums • Scroll horizontally to explore
             </p>
           </div>
@@ -104,9 +106,9 @@ export function TopTracks() {
 
       {/* Track List */}
       <div className="w-full">
-        <div className="flex items-center justify-between px-2 mb-4 md:mb-6">
+        <div className="flex items-center justify-between px-4 mb-4 md:mb-6">
           <div className="flex items-center space-x-2">
-            <h3 className="text-base md:text-lg font-semibold text-gray-900 dark:text-white">Track List</h3>
+            <h3 className="text-base md:text-lg font-semibold text-zinc-900 dark:text-white">Track List</h3>
             <div className="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 px-2 py-1 rounded-full text-xs font-medium">
               {tracks.length} tracks
             </div>
@@ -122,7 +124,7 @@ export function TopTracks() {
           )}
         </div>
 
-        <div className="space-y-1 max-h-[70vh] overflow-y-auto px-2">
+        <div className="space-y-1 max-h-[70vh] overflow-y-auto px-4">
           {displayedTracks.map((track, index) => (
             <div
               key={index}
@@ -160,13 +162,13 @@ export function TopTracks() {
               <div className="flex items-center space-x-2 flex-shrink-0">
                 {track.popularity && (
                   <div className="hidden sm:flex items-center space-x-2">
-                    <div className="w-12 bg-gray-200 dark:bg-gray-700 rounded-full h-1">
+                    <div className="w-12 bg-zinc-200 dark:bg-zinc-700 rounded-full h-1">
                       <div
                         className="bg-green-500 h-1 rounded-full transition-all duration-300"
                         style={{ width: `${track.popularity}%` }}
                       />
                     </div>
-                    <span className="text-xs text-gray-500 dark:text-gray-400 w-6 text-right">{track.popularity}</span>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400 w-6 text-right">{track.popularity}</span>
                   </div>
                 )}
 
@@ -189,7 +191,7 @@ export function TopTracks() {
 
         {/* Mobile-friendly load more button */}
         {tracks.length > 20 && !showAll && (
-          <div className="flex justify-center mt-4 px-2">
+          <div className="flex justify-center mt-4 px-4">
             <button
               onClick={() => setShowAll(true)}
               className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-full text-sm font-medium transition-colors shadow-lg flex items-center space-x-2"

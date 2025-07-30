@@ -63,8 +63,8 @@ const contactMethods: ContactMethod[] = [
   {
     id: "venmo",
     name: "Venmo",
-    username: "@thienio",
-    url: "https://venmo.com/thienio",
+    username: "@thienmtran",
+    url: "https://venmo.com/thienmtran",
     icon: <Venmo className="h-6 w-6" />, // Lucide CreditCard icon
     color: "#3D95CE", // Venmo Blue
   },

@@ -54,15 +54,15 @@ export function HeroTabs() {
 
   return (
     <Tabs defaultValue='start' className='pr- '>
-      <TabsList className='flex flex-col items-start mt-40 mb-40 bg-transparent -ml-4 '>
+      <TabsList className='flex flex-col items-start mt-40 mb-20 bg-transparent -ml-4 '>
         <TabsTrigger value='about'>About</TabsTrigger>
         <TabsTrigger value='blog'>Blog</TabsTrigger>
         <TabsTrigger value='music'>Music</TabsTrigger>
         <TabsTrigger value='contact'>Contact</TabsTrigger>
       </TabsList>
       <TabsContent value='start'>
-        <p className='text-sm'>
-          Hello, I'm Thien, a tennis coach from Connecticut.
+        <p className='text-sm font-serif'>
+          i teach tennis
         </p>
       </TabsContent>
       <TabsContent value='about'>

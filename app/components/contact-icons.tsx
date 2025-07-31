@@ -144,7 +144,7 @@ export function ContactIcons() {
 
   if (isLoading) {
     return (
-      <div className='px-4 max-w-md mx-auto w-full'>
+      <div className='max-w-md w-full'>
         <div className='flex flex-col space-y-3'>
           {' '}
           {/* Smaller space-y */}
@@ -165,7 +165,7 @@ export function ContactIcons() {
   }
 
   return (
-    <div className=' max-w-md mx-auto w-full'>
+    <div className=' max-w-md  w-full'>
       <motion.div
         variants={containerVariants}
         initial='hidden'
@@ -209,7 +209,7 @@ export function ContactIcons() {
                 >
                   {method.icon}
                 </motion.div>
-                <span className='text-base font-medium text-gray-900 dark:text-white'>
+                <span className='text-sm font-normal text-gray-900 dark:text-white'>
                   {' '}
                   {/* Smaller font size */}
                   {method.name}
@@ -229,7 +229,7 @@ export function ContactIcons() {
                       className='overflow-hidden whitespace-nowrap flex items-center space-x-1'
                     >
                       <motion.span
-                        className='text-sm text-gray-600 dark:text-gray-400 font-mono' // Smaller font size
+                        className='text-xs text-gray-600 dark:text-gray-400 font-mono' // Smaller font size
                       >
                         {method.username}
                       </motion.span>
@@ -279,24 +279,6 @@ export function ContactIcons() {
         </AnimatePresence>
       </motion.div>
 
-      {/* Simple footer */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }} // Smaller vertical entrance
-        animate={{ opacity: 1, y: 0 }}
-        transition={{
-          delay: 1.0, // Adjusted delay
-          duration: 0.6, // Adjusted duration
-          type: 'spring',
-          stiffness: 100,
-          damping: 20,
-        }}
-        className='text-center mt-10 mb-6' // Smaller margins
-      >
-        <p className='text-xs text-gray-500 dark:text-gray-400'>
-          Click row to copy username (if available), click arrow to open link
-        </p>{' '}
-        {/* Updated footer text */}
-      </motion.div>
     </div>
   );
 }

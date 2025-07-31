@@ -121,8 +121,8 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <SidebarHeader>
         <Link
           href='/'
-          className=' items-center justify-center mt-3 ml-2 text-sm font-semibold'
-        ><NameTransition /></Link>
+          className=' items-center justify-center mt-3 ml-2 text-large font-bold font-serif tracking-wide'
+        >thien.</Link>
       </SidebarHeader>
       <SidebarContent>
         <NavPages pages={data.pages} />

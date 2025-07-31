@@ -5,8 +5,8 @@ export function NameTransition() {
     <h1 className=' transition-element '>
       <span className='sr-only'>Thien</span>
       <span aria-hidden='true' className='block overflow-hidden group relative'>
-        <span className='inline-block transition-all duration-300 ease-in-out group-hover:-translate-y-full'>
-          {'Thien Tran'.split('').map((letter, index) => (
+        <span className='inline-block transition-all duration-300 ease-in-out group-hover:-translate-y-full font-serif tracking-wide text-6xl'>
+          {'thien.'.split('').map((letter, index) => (
             <span
               key={index}
               className='inline-block'
@@ -20,7 +20,7 @@ export function NameTransition() {
           {'thientran.io'.split('').map((letter, index) => (
             <span
               key={index}
-              className='inline-block'
+              className='inline-block font-light tracking-wide'
               style={{ transitionDelay: `${index * 25}ms` }}
             >
               {letter}

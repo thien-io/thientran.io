@@ -21,7 +21,7 @@ export default function Page() {
       <Link
           href='/'
           className=' items-center justify-center mt-3 ml-2 text-base font-semibold'
-        ><NameTransition /></Link>
+        ><p className="font-serif tracking-wide text-4xl">thien.</p></Link>
         <HeroTabs />
       </div>
     </SidebarProvider>

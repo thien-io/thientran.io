@@ -78,6 +78,7 @@ import {
   SidebarRail,
 } from '@/components/ui/sidebar';
 import { ThemeSwitch } from './theme-switch';
+import { NowPlaying } from "./now-playing";
 
 // Nav Data
 const YEAR = new Date().getFullYear();
@@ -127,6 +128,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <NavPages pages={data.pages} />
       </SidebarContent>
       <SidebarFooter>
+        <NowPlaying />
         <div className='ml-2 flex justify-between mb-3'>
           <ThemeSwitch />
           <p className='text-xs justify-center items-center content-center ml-2 mr-1'>

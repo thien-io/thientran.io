@@ -214,7 +214,7 @@ export function NowPlaying() {
   // Loading state skeleton
   if (isLoading) {
     return (
-      <div className='w-full max-w-full  p-4 shadow-sm mb-4'>
+      <div className='w-full mx-2 mb-1'>
         <div className='flex items-center space-x-4'>
           <Skeleton className='h-12 w-12 rounded-lg flex-shrink-0' />
           <div className='flex-1 space-y-2'>
@@ -234,7 +234,7 @@ export function NowPlaying() {
   // Error state display
   if (error) {
     return (
-      <div className='w-full max-w-full  rounded-sm p-4 shadow-sm mb-4'>
+      <div className='w-full mx-2 mb-1'>
         <div className='flex items-center justify-between'>
           <span className='text-black dark:text-white text-sm'>
             Failed to load
@@ -258,7 +258,7 @@ export function NowPlaying() {
   if (!nowPlaying || !nowPlaying.isPlaying) {
     return (
       <div className='w-full mx-2 mb-1'>
-        <div className='flex items-center  align-middle'>
+        <div className='flex items-center  align-middle justify-between'>
           <button
             onClick={handleManualRefresh}
             disabled={isRefreshing}
@@ -268,7 +268,7 @@ export function NowPlaying() {
               className={`h-4 w-4 ${isRefreshing ? 'animate-spin' : ''}`}
             />
           </button>
-          <p className='text-gray-400 text-xs ml-2'>No music currently playing</p>
+          <p className='text-gray-400 text-xs mr-3'>No music currently playing</p>
         </div>
       </div>
     );

@@ -57,7 +57,6 @@ export function HeroTabs() {
       <TabsList className='flex flex-col items-start mt-40 mb-20 bg-transparent -ml-4 '>
         <TabsTrigger value='about'>About</TabsTrigger>
         <TabsTrigger value='blog'>Blog</TabsTrigger>
-        <TabsTrigger value='music'>Music</TabsTrigger>
         <TabsTrigger value='contact'>Contact</TabsTrigger>
       </TabsList>
       <TabsContent value='start'>
@@ -70,16 +69,6 @@ export function HeroTabs() {
       </TabsContent>
       <TabsContent value='blog'>
         <Blog />
-      </TabsContent>
-      <TabsContent value='music'>
-        <BlurFade delay={0.2} className='space-y-6'>
-
-          <NowPlaying />
-          <div className=' transition-colors duration-300'>
-
-            <TopTracks />
-          </div>
-        </BlurFade>
       </TabsContent>
       <TabsContent value='contact'>
         <ContactIcons />

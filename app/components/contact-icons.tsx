@@ -180,7 +180,7 @@ export function ContactIcons() {
               key={method.id}
               variants={itemVariants}
               custom={index}
-              className='flex items-center justify-between p-2 rounded-sm cursor-pointer group border border-transparent' // Smaller padding, subtle border
+              className='flex items-center justify-between py-2 rounded-sm cursor-pointer group border border-transparent' // Smaller padding, subtle border
               onMouseEnter={() => setHoveredId(method.id)}
               onMouseLeave={() => setHoveredId(null)}
               whileHover={{
@@ -202,7 +202,7 @@ export function ContactIcons() {
                 {' '}
                 {/* Smaller space-x */}
                 <motion.div
-                  className='flex-shrink-0 w-8 h-8 rounded-md flex items-center justify-center text-white shadow-sm' // Smaller square container, solid color
+                  className='flex-shrink-0 w-8 h-8 rounded-sm flex items-center justify-center text-white shadow-sm' // Smaller square container, solid color
                   style={{ backgroundColor: method.color }}
                   whileHover={{ scale: 1.05 }} // Smaller icon scale on hover
                   transition={{ type: 'spring', stiffness: 200, damping: 20 }}

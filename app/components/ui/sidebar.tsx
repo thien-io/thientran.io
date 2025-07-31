@@ -5,7 +5,7 @@ import { Slot } from "@radix-ui/react-slot"
 import { VariantProps, cva } from "class-variance-authority"
 import { PanelLeft, Menu, Command } from "lucide-react"
 import { PiTennisBallBold } from "react-icons/pi";
-
+import { CommandIcon } from "lucide-react"
 import { useIsMobile } from "@/hooks/use-mobile"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
@@ -272,7 +272,7 @@ const SidebarTrigger = React.forwardRef<
       data-sidebar="trigger"
       variant="ghost"
       size="icon"
-      className={cn("h-10 w-10", className)}
+      className={cn("h-10 w-10 ml-2", className)}
       onClick={(event) => {
         onClick?.(event)
         toggleSidebar()
@@ -280,7 +280,7 @@ const SidebarTrigger = React.forwardRef<
       {...props}
     >
 
-      <PiTennisBallBold />
+      <CommandIcon />
 
 
       <span className="sr-only">Toggle Sidebar</span>

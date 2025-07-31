@@ -99,8 +99,8 @@ export default function Blog({ params }) {
             </BreadcrumbList>
           </Breadcrumb>
         </header>
-        <div className='flex flex-1 flex-col gap-4 p-4'>
-          <div className='mt-10'>
+        <div className='flex flex-1 flex-col gap-4 p-10'>
+          <div className='mt-20'>
             <BlurFade delay={0}>
               <section className='mb-40'>
                 <script
@@ -127,11 +127,11 @@ export default function Blog({ params }) {
                     }),
                   }}
                 />
-                <h1 className='title mb-3 font-medium text-2xl tracking-tight'>
+                <h1 className='title mb-3 font-bold text-2xl tracking-tight font-serif'>
                   {post.metadata.title}
                 </h1>
                 <div className='flex justify-between items-center mt-2 mb-8 text-medium'>
-                  <p className='text-sm text-neutral-600 dark:text-neutral-400'>
+                  <p className='text-sm text-neutral-600 dark:text-neutral-400 '>
                     {formatDate(post.metadata.publishedAt)}
                   </p>
                 </div>

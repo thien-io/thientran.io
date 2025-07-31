@@ -34,7 +34,7 @@ export default function BlogPosts() {
       <AppSidebar />
       <SidebarInset>
         <header className='flex h-16 shrink-0 items-center gap-2 border-b '>
-          <SidebarTrigger className='-ml-1' />
+          <SidebarTrigger className='' />
           <Separator orientation='vertical' className='mr-2 h-4' />
           <Breadcrumb>
             <BreadcrumbList>
@@ -50,8 +50,8 @@ export default function BlogPosts() {
             </BreadcrumbList>
           </Breadcrumb>
         </header>
-        <div className='flex flex-1 flex-col gap-4 p-4'>
-          <div className='mt-10'>
+        <div className='flex flex-1 flex-col gap-4 p-10'>
+          <div className='mt-20'>
             <BlurFade delay={0}>
               <h1 className='font-medium text-2xl mb-8 tracking-tighter'>
                 Blog

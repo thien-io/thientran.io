@@ -60,9 +60,7 @@ export function HeroTabs() {
         <TabsTrigger value='contact'>Contact</TabsTrigger>
       </TabsList>
       <TabsContent value='start'>
-        <p className='text-sm font-serif'>
-          i teach tennis
-        </p>
+        <p className='text-lg font-serif tracking-wide'>I teach tennis.</p>
       </TabsContent>
       <TabsContent value='about'>
         <About />

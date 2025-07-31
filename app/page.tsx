@@ -15,20 +15,18 @@ export default function Page() {
     <SidebarProvider>
       <AppSidebar />
 
-
-
-
       <div className='flex flex-col mt-10 w-full'>
-
         <SidebarTrigger className=' ml-6 ' />
         <Link
-          href='/'
+          href='https://thientran.io'
           className=' items-center justify-center mx-10 mt-20 text-base font-semibold'
         >
           <p className='font-serif tracking-wide text-4xl'>thien.</p>
         </Link>
-        <div className="mx-10">        <HeroTabs /></div>
-
+        <div className='mx-10'>
+          {' '}
+          <HeroTabs />
+        </div>
       </div>
     </SidebarProvider>
   );

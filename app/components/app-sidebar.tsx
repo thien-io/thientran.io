@@ -129,9 +129,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarContent>
       <SidebarFooter>
         <NowPlaying />
-        <div className='ml-2 flex justify-between mb-3'>
+        <div className='ml-2 flex justify-between mb-3 text-gray-400 hover:text-black dark:text-white'>
           <ThemeSwitch />
-          <p className='text-xs justify-center items-center content-center ml-2 mr-1'>
+          <p className='text-xs justify-center items-center content-center ml-2 mr-1 text-gray-400 hover:dark:text-gray-200'>
             thien © {YEAR}
           </p>
         </div>

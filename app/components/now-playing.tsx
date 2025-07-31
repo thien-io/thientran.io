@@ -262,13 +262,13 @@ export function NowPlaying() {
           <button
             onClick={handleManualRefresh}
             disabled={isRefreshing}
-            className='text-gray-400 hover:text-black dark:text-white h-6 w-6  rounded-full'
+            className='text-gray-400 hover:text-green-600 dark:text-white h-6 w-6  rounded-full'
           >
             <FaSpotify
-              className={`h-4 w-4 ${isRefreshing ? 'animate-spin' : ''}`}
+              className={`h-4 w-4  ${isRefreshing ? 'animate-spin' : ''}`}
             />
           </button>
-          <p className='text-gray-400 text-xs mr-3'>No music currently playing</p>
+          <p className='text-gray-400 text-xs mr-3'></p>
         </div>
       </div>
     );

@@ -13,19 +13,27 @@ import {
   Check,
   ExternalLink,
 } from 'lucide-react';
-import { DiscordLogoIcon, ImageIcon, SunIcon } from "@radix-ui/react-icons"
-import { IoLogoVenmo } from "react-icons/io5";
+import {
+  DiscordLogoIcon,
+  GitHubLogoIcon,
+  LinkedInLogoIcon,
+  InstagramLogoIcon,
+  EnvelopeClosedIcon,
+  PaperPlaneIcon,
+  ArrowTopRightIcon,
+} from '@radix-ui/react-icons';
+import { IoLogoVenmo } from 'react-icons/io5';
 
-import { Skeleton } from "@/components/ui/skeleton"
+import { Skeleton } from '@/components/ui/skeleton';
 
 interface ContactMethod {
-  id: string
-  name: string
-  username: string
-  url: string
-  icon: React.ReactNode
-  color: string
-  copyable?: boolean
+  id: string;
+  name: string;
+  username: string;
+  url: string;
+  icon: React.ReactNode;
+  color: string;
+  copyable?: boolean;
 }
 
 const contactMethods: ContactMethod[] = [
@@ -34,7 +42,7 @@ const contactMethods: ContactMethod[] = [
     name: 'Email',
     username: 'hello@thientran.io',
     url: 'mailto:hello@thientran.io',
-    icon: <Mail className='h-5 w-5' />,
+    icon: <PaperPlaneIcon className='h-5 w-5' />,
     color: '#3B82F6', // Blue
     copyable: true,
   },
@@ -43,7 +51,7 @@ const contactMethods: ContactMethod[] = [
     name: 'LinkedIn',
     username: '@thienio',
     url: 'https://linkedin.com/in/thienio',
-    icon: <Linkedin className='h-5 w-5' />,
+    icon: <LinkedInLogoIcon className='h-5 w-5' />,
     color: '#0A66C2', // LinkedIn Blue
   },
   {
@@ -51,8 +59,8 @@ const contactMethods: ContactMethod[] = [
     name: 'GitHub',
     username: '@thien-io',
     url: 'https://github.com/thien-io',
-    icon: <Github className='h-5 w-5' />,
-    color: '#24292e', // GitHub Dark
+    icon: <GitHubLogoIcon className='h-5 w-5' />,
+    color: '#49515C', // GitHub Dark
   },
   {
     id: 'discord',
@@ -68,7 +76,7 @@ const contactMethods: ContactMethod[] = [
     name: 'Instagram',
     username: '@thientran.io',
     url: 'https://instagram.com/thientran.io',
-    icon: <Instagram className='h-5 w-5' />,
+    icon: <InstagramLogoIcon className='h-5 w-5' />,
     color: '#E4405F', // Instagram Pink
   },
   {
@@ -76,23 +84,23 @@ const contactMethods: ContactMethod[] = [
     name: 'Venmo',
     username: '@thienmtran',
     url: 'https://venmo.com/thienmtran',
-    icon: <IoLogoVenmo/>,
+    icon: <IoLogoVenmo />,
     color: '#3D95CE', // Venmo Blue
   },
 ];
 
 export function ContactIcons() {
-  const [isLoading, setIsLoading] = useState(true)
-  const [copiedId, setCopiedId] = useState<string | null>(null)
+  const [isLoading, setIsLoading] = useState(true);
+  const [copiedId, setCopiedId] = useState<string | null>(null);
   const [hoveredId, setHoveredId] = useState<string | null>(null);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 600); // Slightly faster initial load
+    }, 100); // Slightly faster initial load
 
     return () => clearTimeout(timer);
-  }, [])
+  }, []);
 
   const copyToClipboard = async (text: string, id: string) => {
     try {
@@ -100,9 +108,9 @@ export function ContactIcons() {
       setCopiedId(id);
       setTimeout(() => setCopiedId(null), 2000); // Shorter copy confirmation
     } catch (err) {
-      console.error("Failed to copy text: ", err)
+      console.error('Failed to copy text: ', err);
     }
-  }
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -144,7 +152,7 @@ export function ContactIcons() {
 
   if (isLoading) {
     return (
-      <div className='max-w-md w-full'>
+      <div className='max-w-md w-full mb-40'>
         <div className='flex flex-col space-y-3'>
           {' '}
           {/* Smaller space-y */}
@@ -198,12 +206,12 @@ export function ContactIcons() {
               }}
             >
               {/* Icon and Name */}
-              <div className='flex items-center space-x-3'>
+              <div className='flex items-center space-x-1'>
                 {' '}
                 {/* Smaller space-x */}
                 <motion.div
-                  className='flex-shrink-0 w-8 h-8 rounded-sm flex items-center justify-center text-white shadow-sm' // Smaller square container, solid color
-                  style={{ backgroundColor: method.color }}
+                  className='flex-shrink-0 w-8 h-8 rounded-sm flex items-center justify-center text-white ' // Smaller square container, solid color
+                  style={{ color: method.color }}
                   whileHover={{ scale: 1.05 }} // Smaller icon scale on hover
                   transition={{ type: 'spring', stiffness: 200, damping: 20 }}
                 >
@@ -218,6 +226,10 @@ export function ContactIcons() {
 
               {/* Username and External Link */}
               <div className='relative flex items-center space-x-2 min-w-[150px] justify-end'>
+                <div className='overflow-hidden whitespace-nowrap flex items-center space-x-1 text-xs text-gray-600 dark:text-gray-400 font-mono'>
+                  {' '}
+                  {method.username}
+                </div>
                 <AnimatePresence mode='wait'>
                   {hoveredId === method.id && (
                     <motion.div
@@ -228,11 +240,6 @@ export function ContactIcons() {
                       exit='hidden'
                       className='overflow-hidden whitespace-nowrap flex items-center space-x-1'
                     >
-                      <motion.span
-                        className='text-xs text-gray-600 dark:text-gray-400 font-mono' // Smaller font size
-                      >
-                        {method.username}
-                      </motion.span>
                       {method.url && ( // Only show link if URL exists
                         <motion.a
                           href={method.url}
@@ -246,7 +253,7 @@ export function ContactIcons() {
                           transition={{ duration: 0.2, ease: 'easeOut' }}
                           aria-label={`Open ${method.name} profile`}
                         >
-                          <ExternalLink className='h-4 w-4' />{' '}
+                          <ArrowTopRightIcon className='h-4 w-4' />{' '}
                           {/* Slightly larger icon */}
                         </motion.a>
                       )}
@@ -257,7 +264,7 @@ export function ContactIcons() {
                 {/* Copy indicator for copyable items */}
                 {method.copyable && (
                   <motion.div
-                    className='absolute -right-6 bg-green-500 rounded-full p-1.5 shadow-lg border-2 border-white'
+                    className='absolute -right-6 bg-green-500 rounded-full p-1.5  border-2 border-white'
                     initial={{ scale: 0, opacity: 0 }}
                     animate={{
                       scale: copiedId === method.id ? 1 : 0,
@@ -278,7 +285,6 @@ export function ContactIcons() {
           ))}
         </AnimatePresence>
       </motion.div>
-
     </div>
   );
 }

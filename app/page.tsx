@@ -15,14 +15,20 @@ export default function Page() {
     <SidebarProvider>
       <AppSidebar />
 
-      <SidebarTrigger className='fixed top-14 left-6 z-50 md:hidden' />
 
-      <div className='mt-10 w-full px-10 py-40'>
-      <Link
+
+
+      <div className='flex flex-col mt-10 w-full'>
+
+        <SidebarTrigger className=' ml-6 ' />
+        <Link
           href='/'
-          className=' items-center justify-center mt-3 ml-2 text-base font-semibold'
-        ><p className="font-serif tracking-wide text-4xl">thien.</p></Link>
-        <HeroTabs />
+          className=' items-center justify-center mx-10 mt-20 text-base font-semibold'
+        >
+          <p className='font-serif tracking-wide text-4xl'>thien.</p>
+        </Link>
+        <div className="mx-10">        <HeroTabs /></div>
+
       </div>
     </SidebarProvider>
   );

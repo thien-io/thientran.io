@@ -214,7 +214,7 @@ export function NowPlaying() {
   // Loading state skeleton
   if (isLoading) {
     return (
-      <div className='w-full max-w-full bg-zinc-100 dark:bg-zinc-700 rounded-xl p-4 shadow-sm mb-4'>
+      <div className='w-full max-w-full bg-zinc-100 dark:bg-zinc-700 rounded-sm p-4 shadow-sm mb-4'>
         <div className='flex items-center space-x-4'>
           <Skeleton className='h-12 w-12 rounded-lg flex-shrink-0' />
           <div className='flex-1 space-y-2'>
@@ -234,7 +234,7 @@ export function NowPlaying() {
   // Error state display
   if (error) {
     return (
-      <div className='w-full max-w-full bg-zinc-100 dark:bg-zinc-700 rounded-xl p-4 shadow-sm mb-4'>
+      <div className='w-full max-w-full bg-zinc-100 dark:bg-zinc-700 rounded-sm p-4 shadow-sm mb-4'>
         <div className='flex items-center justify-between'>
           <span className='text-black dark:text-white text-sm'>
             Failed to load
@@ -257,7 +257,7 @@ export function NowPlaying() {
   // Not playing state display
   if (!nowPlaying || !nowPlaying.isPlaying) {
     return (
-      <div className='w-full max-w-full bg-zinc-100 dark:bg-zinc-700 rounded-xl p-4 shadow-sm mb-4'>
+      <div className='w-full max-w-full bg-zinc-100 dark:bg-zinc-700 rounded-sm p-4 shadow-sm mb-4'>
         <div className='flex items-center justify-between'>
           <div className='flex items-center space-x-3'>
             <div className='h-12 w-12 bg-gray-700 rounded-lg flex items-center justify-center'>
@@ -291,7 +291,7 @@ export function NowPlaying() {
     : 0;
 
   return (
-    <div className='w-full max-w-full bg-zinc-100 dark:bg-zinc-700 rounded-xl p-4 shadow-sm mb-4'>
+    <div className='w-full max-w-full bg-zinc-100 dark:bg-zinc-700 rounded-sm p-4 shadow-sm mb-4'>
       {/* Main content row: Album Art, Song Info, Sound Bars/Controls */}
       <div className='flex items-center space-x-4'>
         {/* Album Art - Fixed size for compact display */}

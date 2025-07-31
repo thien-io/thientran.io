@@ -53,6 +53,7 @@ const contactMethods: ContactMethod[] = [
     url: 'https://linkedin.com/in/thienio',
     icon: <LinkedInLogoIcon className='h-5 w-5' />,
     color: '#0A66C2', // LinkedIn Blue
+    copyable: true,
   },
   {
     id: 'github',
@@ -61,6 +62,7 @@ const contactMethods: ContactMethod[] = [
     url: 'https://github.com/thien-io',
     icon: <GitHubLogoIcon className='h-5 w-5' />,
     color: '#49515C', // GitHub Dark
+    copyable: true,
   },
   {
     id: 'discord',
@@ -78,6 +80,7 @@ const contactMethods: ContactMethod[] = [
     url: 'https://instagram.com/thientran.io',
     icon: <InstagramLogoIcon className='h-5 w-5' />,
     color: '#E4405F', // Instagram Pink
+    copyable: true,
   },
   {
     id: 'venmo',
@@ -86,6 +89,7 @@ const contactMethods: ContactMethod[] = [
     url: 'https://venmo.com/thienmtran',
     icon: <IoLogoVenmo />,
     color: '#3D95CE', // Venmo Blue
+        copyable: true,
   },
 ];
 

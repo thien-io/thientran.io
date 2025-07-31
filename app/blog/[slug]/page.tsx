@@ -99,7 +99,7 @@ export default function Blog({ params }) {
             </BreadcrumbList>
           </Breadcrumb>
         </header>
-        <div className='flex flex-1 flex-col gap-4 p-10'>
+        <div className='flex flex-1 flex-col gap-4 px-6'>
           <div className='mt-20'>
             <BlurFade delay={0}>
               <section className='mb-40'>

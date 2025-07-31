@@ -177,7 +177,7 @@ export function ContactIcons() {
   }
 
   return (
-    <div className=' max-w-md  w-full'>
+    <div className=' max-w-md  w-full -ml-2'>
       <motion.div
         variants={containerVariants}
         initial='hidden'
@@ -221,7 +221,7 @@ export function ContactIcons() {
                 >
                   {method.icon}
                 </motion.div>
-                <span className='text-sm font-normal text-gray-900 dark:text-white'>
+                <span className='text-sm font-normal text-gray-900 dark:text-white items-center justify-center align-middle'>
                   {' '}
                   {/* Smaller font size */}
                   {method.name}

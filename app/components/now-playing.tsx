@@ -214,7 +214,7 @@ export function NowPlaying() {
   // Loading state skeleton
   if (isLoading) {
     return (
-      <div className='w-full max-w-full bg-zinc-100 dark:bg-zinc-700 rounded-sm p-4 shadow-sm mb-4'>
+      <div className='w-full max-w-full  p-4 shadow-sm mb-4'>
         <div className='flex items-center space-x-4'>
           <Skeleton className='h-12 w-12 rounded-lg flex-shrink-0' />
           <div className='flex-1 space-y-2'>
@@ -234,7 +234,7 @@ export function NowPlaying() {
   // Error state display
   if (error) {
     return (
-      <div className='w-full max-w-full bg-zinc-100 dark:bg-zinc-700 rounded-sm p-4 shadow-sm mb-4'>
+      <div className='w-full max-w-full  rounded-sm p-4 shadow-sm mb-4'>
         <div className='flex items-center justify-between'>
           <span className='text-black dark:text-white text-sm'>
             Failed to load
@@ -257,30 +257,18 @@ export function NowPlaying() {
   // Not playing state display
   if (!nowPlaying || !nowPlaying.isPlaying) {
     return (
-      <div className='w-full max-w-full bg-zinc-100 dark:bg-zinc-700 rounded-sm p-4 shadow-sm mb-4'>
-        <div className='flex items-center justify-between'>
-          <div className='flex items-center space-x-3'>
-            <div className='h-12 w-12 bg-gray-700 rounded-lg flex items-center justify-center'>
-              <Button
-                onClick={handleManualRefresh}
-                disabled={isRefreshing}
-                size='sm'
-                className='bg-green-500 hover:bg-green-600 text-black dark:text-white'
-              >
-                <RefreshCw
-                  className={`h-3 w-3 ${isRefreshing ? 'animate-spin' : ''}`}
-                />
-              </Button>
-            </div>
-            <div>
-              <p className='text-black dark:text-white font-medium text-sm'>
-                Not Playing
-              </p>
-              <p className='text-gray-400 text-xs'>
-                No music currently playing
-              </p>
-            </div>
-          </div>
+      <div className='w-full mx-2 mb-1'>
+        <div className='flex items-center  align-middle'>
+          <button
+            onClick={handleManualRefresh}
+            disabled={isRefreshing}
+            className='text-gray-400 hover:text-black dark:text-white h-6 w-6  rounded-full'
+          >
+            <FaSpotify
+              className={`h-4 w-4 ${isRefreshing ? 'animate-spin' : ''}`}
+            />
+          </button>
+          <p className='text-gray-400 text-xs ml-2'>No music currently playing</p>
         </div>
       </div>
     );
@@ -291,7 +279,7 @@ export function NowPlaying() {
     : 0;
 
   return (
-    <div className='w-full max-w-full bg-zinc-100 dark:bg-zinc-700 rounded-sm p-4 shadow-sm mb-4'>
+    <div className='w-full max-w-full rounded-sm p-4  mb-4'>
       {/* Main content row: Album Art, Song Info, Sound Bars/Controls */}
       <div className='flex items-center space-x-4'>
         {/* Album Art - Fixed size for compact display */}
@@ -300,18 +288,50 @@ export function NowPlaying() {
             nowPlaying.albumImageUrl || '/placeholder.svg?height=48&width=48'
           }
           alt={`${nowPlaying.album} album cover`}
-          className='h-12 w-12 rounded-lg object-cover flex-shrink-0'
+          className='h-12 w-12 rounded-sm object-cover flex-shrink-0'
         />
 
         {/* Song Info - Takes available space, truncates long text */}
         <div className='flex-1 min-w-0'>
-          <h3 className='text-black dark:text-white font-medium text-sm truncate'>
-            {nowPlaying.title}
-          </h3>
+          <div className='flex'>
+            <div className='pr-2 flex justify-center'>
+              <SoundBars isPlaying={nowPlaying.isPlaying} />
+              {/* Sound bars animate when playing */}
+            </div>
+            <h3 className='text-black dark:text-white font-medium text-sm truncate'>
+              {nowPlaying.title}
+            </h3>
+          </div>
+
           <p className='text-gray-400 text-xs truncate'>{nowPlaying.artist}</p>
         </div>
 
-        {/* Sound Bars and Controls - Aligned to the right */}
+        {/* Spotify Link - Responsive text size
+                  <Button
+            onClick={handleManualRefresh}
+            disabled={isRefreshing}
+
+            variant='ghost'
+            className='text-gray-400 hover:text-black dark:text-white h-2 w-2  rounded-full'
+          >
+            <RefreshCw
+              className={`h-1 w-1 ${isRefreshing ? 'animate-spin' : ''}`}
+            />
+          </Button> */}
+        <div className=''>
+          {nowPlaying.songUrl && (
+            <div className='mt-2'>
+              <a
+                href={nowPlaying.songUrl}
+                target='_blank'
+                rel='noopener noreferrer'
+                className='text-xs text-green-400 hover:text-green-300 transition-colors mr-4'
+              >
+                <FaSpotify />
+              </a>
+            </div>
+          )}
+        </div>
       </div>
 
       {/* Progress Bar - Full width, responsive */}
@@ -331,37 +351,6 @@ export function NowPlaying() {
           </span>
         </div>
       </div>
-      <div className='flex items-center space-x-3'>
-        <div className='w-12 flex justify-center'>
-          <SoundBars isPlaying={nowPlaying.isPlaying} />{' '}
-          {/* Sound bars animate when playing */}
-        </div>
-        <Button
-          onClick={handleManualRefresh}
-          disabled={isRefreshing}
-          size='sm'
-          variant='ghost'
-          className='text-gray-400 hover:text-black dark:text-white h-8 w-8 p-0 rounded-full'
-        >
-          <RefreshCw
-            className={`h-3 w-3 ${isRefreshing ? 'animate-spin' : ''}`}
-          />
-        </Button>
-      </div>
-
-      {/* Spotify Link - Responsive text size */}
-      {nowPlaying.songUrl && (
-        <div className='mt-2'>
-          <a
-            href={nowPlaying.songUrl}
-            target='_blank'
-            rel='noopener noreferrer'
-            className='text-xs text-green-400 hover:text-green-300 transition-colors'
-          >
-            <FaSpotify />
-          </a>
-        </div>
-      )}
     </div>
   );
 }

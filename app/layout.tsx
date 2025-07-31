@@ -81,10 +81,10 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <main className='flex flex-1 flex-col gap-4 p-3 pt-0 w-full h-screen'>
+            <main className='flex flex-1 flex-col gap-4  pt-0 w-full h-screen'>
               
 
-                <div className=' w-full overflow-x-hidden'>{children}</div>
+                <div className=' w-full   overflow-x-hidden'>{children}</div>
              
               <Analytics />
               <SpeedInsights />

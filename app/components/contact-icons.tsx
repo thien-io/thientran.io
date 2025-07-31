@@ -4,9 +4,18 @@ import type React from "react"
 
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Mail, Github, Linkedin, Instagram, DiscIcon as Discord, CreditCardIcon as Venmo, Check } from "lucide-react" // Using Disc and CreditCard for Discord and Venmo
-import { FaDiscord, } from "react-icons/fa6"
-import { IoLogoVenmo, IoLogoGithub, IoLogoLinkedin, IoLogoInstagram, IoMail } from 'react-icons/io5';
+import {
+  Mail,
+  Github,
+  Linkedin,
+  Instagram,
+  MessageCircle,
+  Check,
+  ExternalLink,
+} from 'lucide-react';
+import { DiscordLogoIcon, ImageIcon, SunIcon } from "@radix-ui/react-icons"
+import { IoLogoVenmo } from "react-icons/io5";
+
 import { Skeleton } from "@/components/ui/skeleton"
 
 interface ContactMethod {
@@ -21,74 +30,75 @@ interface ContactMethod {
 
 const contactMethods: ContactMethod[] = [
   {
-    id: "email",
-    name: "Email",
-    username: "hello@thientran.io",
-    url: "mailto:hello@thientran.io",
-    icon: <IoMail className="h-6 w-6" />,
-    color: "#3B82F6", // Blue
+    id: 'email',
+    name: 'Email',
+    username: 'hello@thientran.io',
+    url: 'mailto:hello@thientran.io',
+    icon: <Mail className='h-5 w-5' />,
+    color: '#3B82F6', // Blue
     copyable: true,
   },
   {
-    id: "linkedin",
-    name: "LinkedIn",
-    username: "@thienio",
-    url: "https://linkedin.com/in/thienio",
-    icon: <Linkedin className="h-6 w-6" />,
-    color: "#0A66C2", // LinkedIn Blue
+    id: 'linkedin',
+    name: 'LinkedIn',
+    username: '@thienio',
+    url: 'https://linkedin.com/in/thienio',
+    icon: <Linkedin className='h-5 w-5' />,
+    color: '#0A66C2', // LinkedIn Blue
   },
   {
-    id: "github",
-    name: "GitHub",
-    username: "@thien-io",
-    url: "https://github.com/thien-io",
-    icon: <IoLogoGithub className="h-6 w-6" />,
-    color: "#24292e", // GitHub Dark
+    id: 'github',
+    name: 'GitHub',
+    username: '@thien-io',
+    url: 'https://github.com/thien-io',
+    icon: <Github className='h-5 w-5' />,
+    color: '#24292e', // GitHub Dark
   },
   {
-    id: "discord",
-    name: "Discord",
-    username: "thien.io",
-    url: "https://discord.com/users/thien.io",
-    icon: <FaDiscord className="h-6 w-6" />, // Lucide Disc icon
-    color: "#5865F2", // Discord Blurple
+    id: 'discord',
+    name: 'Discord',
+    username: 'thien.io',
+    url: 'https://discord.com/users/thien.io',
+    icon: <DiscordLogoIcon className='h-5 w-5' />,
+    color: '#5865F2', // Discord Blurple
     copyable: true,
   },
   {
-    id: "instagram",
-    name: "Instagram",
-    username: "@thientran.io",
-    url: "https://instagram.com/thientran.io",
-    icon: <IoLogoInstagram className="h-6 w-6" />,
-    color: "#E4405F", // Instagram Pink
+    id: 'instagram',
+    name: 'Instagram',
+    username: '@thientran.io',
+    url: 'https://instagram.com/thientran.io',
+    icon: <Instagram className='h-5 w-5' />,
+    color: '#E4405F', // Instagram Pink
   },
   {
-    id: "venmo",
-    name: "Venmo",
-    username: "@thienmtran",
-    url: "https://venmo.com/thienmtran",
-    icon: <IoLogoVenmo className="h-6 w-6" />, // Lucide CreditCard icon
-    color: "#3D95CE", // Venmo Blue
+    id: 'venmo',
+    name: 'Venmo',
+    username: '@thienmtran',
+    url: 'https://venmo.com/thienmtran',
+    icon: <IoLogoVenmo/>,
+    color: '#3D95CE', // Venmo Blue
   },
-]
+];
 
 export function ContactIcons() {
   const [isLoading, setIsLoading] = useState(true)
   const [copiedId, setCopiedId] = useState<string | null>(null)
+  const [hoveredId, setHoveredId] = useState<string | null>(null);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setIsLoading(false)
-    }, 800)
+      setIsLoading(false);
+    }, 600); // Slightly faster initial load
 
-    return () => clearTimeout(timer)
+    return () => clearTimeout(timer);
   }, [])
 
   const copyToClipboard = async (text: string, id: string) => {
     try {
-      await navigator.clipboard.writeText(text)
-      setCopiedId(id)
-      setTimeout(() => setCopiedId(null), 2500)
+      await navigator.clipboard.writeText(text);
+      setCopiedId(id);
+      setTimeout(() => setCopiedId(null), 2000); // Shorter copy confirmation
     } catch (err) {
       console.error("Failed to copy text: ", err)
     }
@@ -99,178 +109,194 @@ export function ContactIcons() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.3,
-        staggerDirection: -1,
-        duration: 0.8,
+        staggerChildren: 0.1, // Slightly faster stagger
+        delayChildren: 0.1,
+        staggerDirection: -1, // Bottom to top
       },
     },
-  }
+  };
 
   const itemVariants = {
     hidden: {
       opacity: 0,
-      y: 80,
-      scale: 0.7,
+      y: 40, // Smaller vertical entrance
     },
     visible: {
       opacity: 1,
       y: 0,
-      scale: 1,
       transition: {
-        type: "spring",
-        stiffness: 200,
-        damping: 30,
-        duration: 1.2,
+        type: 'spring',
+        stiffness: 120, // Less bouncy
+        damping: 25, // Smoother damping
+        duration: 0.8, // Slower overall duration
       },
     },
-  }
+  };
+
+  const usernameAndLinkWrapperVariants = {
+    hidden: { width: 0, opacity: 0 },
+    visible: {
+      width: 'auto', // Animate width to reveal
+      opacity: 1,
+      transition: { duration: 0.3, ease: 'easeOut' },
+    },
+  };
 
   if (isLoading) {
     return (
-      <div className="px-4 max-w-4xl mx-auto">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 justify-items-center">
+      <div className='px-4 max-w-md mx-auto w-full'>
+        <div className='flex flex-col space-y-3'>
+          {' '}
+          {/* Smaller space-y */}
           {Array.from({ length: 6 }).map((_, i) => (
-            <div key={i} className="flex flex-col items-center space-y-3">
-              <Skeleton className="h-14 w-14 rounded-full" /> {/* Changed to rounded-full */}
-              <Skeleton className="h-4 w-20" />
+            <div key={i} className='flex items-center space-x-3 p-2 rounded-lg'>
+              {' '}
+              {/* Smaller padding */}
+              <Skeleton className='h-8 w-8 rounded-md' />{' '}
+              {/* Smaller icon skeleton */}
+              <Skeleton className='h-4 w-20' />
+              <Skeleton className='h-4 w-24 ml-auto' />{' '}
+              {/* Smaller username skeleton */}
             </div>
           ))}
         </div>
       </div>
-    )
+    );
   }
 
   return (
-    <div className="px-4 max-w-4xl mx-auto">
+    <div className=' max-w-md mx-auto w-full'>
       <motion.div
         variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 justify-items-center"
+        initial='hidden'
+        animate='visible'
+        className='flex flex-col'
       >
+        {' '}
+        {/* Smaller space-y */}
         <AnimatePresence>
           {contactMethods.map((method, index) => (
             <motion.div
               key={method.id}
               variants={itemVariants}
               custom={index}
-              className="flex flex-col items-center space-y-4 group cursor-pointer"
+              className='flex items-center justify-between p-2 rounded-sm cursor-pointer group border border-transparent' // Smaller padding, subtle border
+              onMouseEnter={() => setHoveredId(method.id)}
+              onMouseLeave={() => setHoveredId(null)}
               whileHover={{
-                y: -8, // Slightly less lift
-                transition: {
-                  type: "spring",
-                  stiffness: 250, // Slightly stiffer for quicker response
-                  damping: 25,
-                  duration: 0.4, // Quicker hover animation
-                },
+                backgroundColor: 'var(--accent)', // Use shadcn accent for hover background
+                scale: 1.01, // Even smaller scale on hover
+                transition: { duration: 0.2 },
               }}
-              whileTap={{
-                scale: 0.95, // Slightly less scale on tap
-                transition: { duration: 0.1 },
-              }}
+              whileTap={{ scale: 0.99 }} // Even smaller scale on tap
               onClick={() => {
+                // Only copy username on row click if the method is copyable
                 if (method.copyable) {
-                  copyToClipboard(method.username, method.id)
-                } else {
-                  window.open(method.url, "_blank")
+                  copyToClipboard(method.username, method.id);
                 }
+                // Do nothing if not copyable, as per request
               }}
             >
-              {/* Minimalistic Icon Container */}
-              <motion.div
-                className="relative w-10 h-10 rounded-sm flex items-center justify-center transition-colors duration-300" // Changed to rounded-full, smaller size
-                style={{
-                  backgroundColor: method.color, // Solid color background
-                  boxShadow: `0 2px 10px ${method.color}30`, // Simpler, softer shadow
-                }}
-                whileHover={{
-                  backgroundColor: `${method.color}e0`, // Slightly darker on hover
-                  boxShadow: `0 4px 15px ${method.color}40`, // More pronounced shadow on hover
-                  scale: 1.05, // Subtle scale on hover
-                  transition: {
-                    type: "spring",
-                    stiffness: 250,
-                    damping: 25,
-                    duration: 0.4,
-                  },
-                }}
-                whileTap={{
-                  scale: 0.98,
-                  transition: { duration: 0.1 },
-                }}
-              >
-                {/* Icon */}
+              {/* Icon and Name */}
+              <div className='flex items-center space-x-3'>
+                {' '}
+                {/* Smaller space-x */}
                 <motion.div
-                  className="text-white drop-shadow-sm"
-                  whileHover={{
-                    scale: 1.05, // Subtle icon scale on hover
-                    transition: {
-                      type: "spring",
-                      stiffness: 200,
-                      damping: 20,
-                      duration: 0.3,
-                    },
-                  }}
+                  className='flex-shrink-0 w-8 h-8 rounded-md flex items-center justify-center text-white shadow-sm' // Smaller square container, solid color
+                  style={{ backgroundColor: method.color }}
+                  whileHover={{ scale: 1.05 }} // Smaller icon scale on hover
+                  transition={{ type: 'spring', stiffness: 200, damping: 20 }}
                 >
                   {method.icon}
                 </motion.div>
+                <span className='text-base font-medium text-gray-900 dark:text-white'>
+                  {' '}
+                  {/* Smaller font size */}
+                  {method.name}
+                </span>
+              </div>
+
+              {/* Username and External Link */}
+              <div className='relative flex items-center space-x-2 min-w-[150px] justify-end'>
+                <AnimatePresence mode='wait'>
+                  {hoveredId === method.id && (
+                    <motion.div
+                      key='username-and-link-wrapper'
+                      variants={usernameAndLinkWrapperVariants}
+                      initial='hidden'
+                      animate='visible'
+                      exit='hidden'
+                      className='overflow-hidden whitespace-nowrap flex items-center space-x-1'
+                    >
+                      <motion.span
+                        className='text-sm text-gray-600 dark:text-gray-400 font-mono' // Smaller font size
+                      >
+                        {method.username}
+                      </motion.span>
+                      {method.url && ( // Only show link if URL exists
+                        <motion.a
+                          href={method.url}
+                          target='_blank'
+                          rel='noopener noreferrer'
+                          className='text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition-colors flex-shrink-0'
+                          onClick={(e) => e.stopPropagation()} // Prevent row click from triggering
+                          initial={{ opacity: 0, x: 10 }} // Initial state for roll-in
+                          animate={{ opacity: 1, x: 0 }} // Animate in
+                          exit={{ opacity: 0, x: 10 }} // Animate out
+                          transition={{ duration: 0.2, ease: 'easeOut' }}
+                          aria-label={`Open ${method.name} profile`}
+                        >
+                          <ExternalLink className='h-4 w-4' />{' '}
+                          {/* Slightly larger icon */}
+                        </motion.a>
+                      )}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
 
                 {/* Copy indicator for copyable items */}
                 {method.copyable && (
                   <motion.div
-                    className="absolute -top-1 -right-1 bg-green-500 rounded-full p-1.5 shadow-lg border-2 border-white"
+                    className='absolute -right-6 bg-green-500 rounded-full p-1.5 shadow-lg border-2 border-white'
                     initial={{ scale: 0, opacity: 0 }}
                     animate={{
                       scale: copiedId === method.id ? 1 : 0,
                       opacity: copiedId === method.id ? 1 : 0,
                     }}
                     transition={{
-                      type: "spring",
+                      type: 'spring',
                       stiffness: 300,
                       damping: 25,
                       duration: 0.5,
                     }}
                   >
-                    <Check className="h-3 w-3 text-white" />
+                    <Check className='h-3 w-3 text-white' />
                   </motion.div>
                 )}
-              </motion.div>
-
-              {/* Username */}
-              <motion.div
-                className="text-center"
-                initial={{ opacity: 0, y: 15 }}
-                animate={{
-                  opacity: 1,
-                  y: 0,
-                  transition: { delay: 0.2, duration: 0.6 },
-                }}
-                whileHover={{
-                  scale: 1.02, // Subtle scale on username hover
-                  transition: { duration: 0.2 },
-                }}
-              >
-                <p className="text-sm font-light text-gray-900 dark:text-white transition-colors duration-300">
-                  {method.username}
-                </p>
-                <motion.p
-                  className="text-xs text-gray-500 dark:text-gray-400 mt-1"
-                  initial={{ opacity: 0 }}
-                  whileHover={{
-                    opacity: 1,
-                    transition: { duration: 0.2 },
-                  }}
-                >
-                  {method.copyable ? "Tap to copy" : "Tap to open"}
-                </motion.p>
-              </motion.div>
+              </div>
             </motion.div>
           ))}
         </AnimatePresence>
       </motion.div>
 
-    
+      {/* Simple footer */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }} // Smaller vertical entrance
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          delay: 1.0, // Adjusted delay
+          duration: 0.6, // Adjusted duration
+          type: 'spring',
+          stiffness: 100,
+          damping: 20,
+        }}
+        className='text-center mt-10 mb-6' // Smaller margins
+      >
+        <p className='text-xs text-gray-500 dark:text-gray-400'>
+          Click row to copy username (if available), click arrow to open link
+        </p>{' '}
+        {/* Updated footer text */}
+      </motion.div>
     </div>
-  )
+  );
 }

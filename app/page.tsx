@@ -17,7 +17,7 @@ export default function Page() {
 
       <SidebarTrigger className='fixed top-14 right-8 z-50 md:hidden' />
 
-      <div className='mt-10 w-full ml-2'>
+      <div className='mt-10 w-full px-10 py-40'>
       <Link
           href='/'
           className=' items-center justify-center mt-3 ml-2 text-base font-semibold'

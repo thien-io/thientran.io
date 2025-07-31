@@ -21,6 +21,7 @@ import {
   EnvelopeClosedIcon,
   PaperPlaneIcon,
   ArrowTopRightIcon,
+  CopyIcon,
 } from '@radix-ui/react-icons';
 import { IoLogoVenmo } from 'react-icons/io5';
 
@@ -177,7 +178,7 @@ export function ContactIcons() {
   }
 
   return (
-    <div className=' max-w-md  w-full -ml-2'>
+    <div className='  w-full -ml-2'>
       <motion.div
         variants={containerVariants}
         initial='hidden'
@@ -268,7 +269,7 @@ export function ContactIcons() {
                 {/* Copy indicator for copyable items */}
                 {method.copyable && (
                   <motion.div
-                    className='absolute -right-6 bg-green-500 rounded-full p-1.5  border-2 border-white'
+                    className=' '
                     initial={{ scale: 0, opacity: 0 }}
                     animate={{
                       scale: copiedId === method.id ? 1 : 0,
@@ -281,7 +282,7 @@ export function ContactIcons() {
                       duration: 0.5,
                     }}
                   >
-                    <Check className='h-3 w-3 text-white' />
+                    <CopyIcon className='h-4 w-4 dark:text-green-600 text-green-600 items-center align-middle justify-center ' />
                   </motion.div>
                 )}
               </div>

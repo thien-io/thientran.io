@@ -16,7 +16,7 @@ export default function Photos() {
         columns={2}
         images={[
           {
-            src: '/photos/tennis-court-1.jpg',
+            src: '/photos/twin-lakes-court-1.jpg',
             alt: 'tennis',
             href: 'https://thientran.io',
           },
@@ -71,7 +71,7 @@ export default function Photos() {
       <ImageGrid
         columns={2}
         images={[
-          { src: '/photos/retro-tennis-court-1.jpg', alt: 'Tennis' },
+          { src: '/photos/tennis-court-1.jpg', alt: 'Tennis' },
           { src: '/photos/retro-tennis-court-2.jpg', alt: 'Tennis' },
           { src: '/photos/retro-tennis-court-3.jpg', alt: 'Tennis' },
           { src: '/photos/retro-tennis-court-4.jpg', alt: 'Tennis' },

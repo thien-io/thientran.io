@@ -26,6 +26,7 @@ import { ImageGrid } from '@/components/image-grid';
 import { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { ContactIcons } from './contact-icons';
+import { ImageGallery } from './image-gallery';
 interface TabProps {
   text: string;
   selected: boolean;
@@ -57,6 +58,7 @@ export function HeroTabs() {
       <TabsList className='flex flex-col items-start mt-40 mb-20 bg-transparent -ml-4 '>
         <TabsTrigger value='about'>About</TabsTrigger>
         <TabsTrigger value='blog'>Blog</TabsTrigger>
+        <TabsTrigger value='photos'>Photos</TabsTrigger>
         <TabsTrigger value='contact'>Contact</TabsTrigger>
       </TabsList>
       <TabsContent value='start'>
@@ -67,6 +69,9 @@ export function HeroTabs() {
       </TabsContent>
       <TabsContent value='blog'>
         <Blog />
+      </TabsContent>
+      <TabsContent value='photos'>
+        <ImageGallery />
       </TabsContent>
       <TabsContent value='contact'>
         <ContactIcons />

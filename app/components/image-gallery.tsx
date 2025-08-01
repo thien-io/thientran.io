@@ -182,12 +182,12 @@ export function ImageGallery() {
 
   if (isLoading) {
     return (
-      <div className="px-4 max-w-full">
+      <div className="mb-40 max-w-full">
         {/* Mobile: Single column with proper aspect ratios */}
         <div className="block md:hidden space-y-4">
           {Array.from({ length: 12 }).map((_, i) => {
             const aspectRatio = sampleImages[i]?.aspectRatio || "square"
-            return <Skeleton key={i} className={`rounded-lg w-full ${getMobileAspectClass(aspectRatio)}`} />
+            return <Skeleton key={i} className={`rounded-none w-full ${getMobileAspectClass(aspectRatio)}`} />
           })}
         </div>
 
@@ -195,7 +195,7 @@ export function ImageGallery() {
         <div className="hidden md:grid md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[200px]">
           {Array.from({ length: 12 }).map((_, i) => {
             const aspectRatio = sampleImages[i]?.aspectRatio || "square"
-            return <Skeleton key={i} className={`rounded-lg ${getBentoClass(aspectRatio)}`} />
+            return <Skeleton key={i} className={`rounded-none ${getBentoClass(aspectRatio)}`} />
           })}
         </div>
       </div>
@@ -204,7 +204,7 @@ export function ImageGallery() {
 
   return (
     <>
-      <div className="px-4 max-w-full">
+      <div className="mb-40 max-w-full">
         {/* Mobile: Single column layout */}
         <div className="block md:hidden">
           <motion.div variants={containerVariants} initial="hidden" animate="visible" className="space-y-4">
@@ -217,7 +217,7 @@ export function ImageGallery() {
                   y: -4,
                   transition: { type: "spring", stiffness: 300, damping: 20 },
                 }}
-                className={`relative group cursor-pointer rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 w-full ${getMobileAspectClass(image.aspectRatio)}`}
+                className={`relative group cursor-pointer rounded-none overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 w-full ${getMobileAspectClass(image.aspectRatio)}`}
                 onClick={() => openLightbox(image)}
               >
                 {/* Image */}
@@ -258,7 +258,7 @@ export function ImageGallery() {
                   y: -4,
                   transition: { type: "spring", stiffness: 300, damping: 20 },
                 }}
-                className={`relative group cursor-pointer rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 ${getBentoClass(image.aspectRatio)}`}
+                className={`relative group cursor-pointer rounded-none overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 ${getBentoClass(image.aspectRatio)}`}
                 onClick={() => openLightbox(image)}
               >
                 {/* Image */}
@@ -290,7 +290,7 @@ export function ImageGallery() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 dark:bg-black/95 bg-white z-50 flex items-center justify-center p-4"
             onClick={() => setSelectedImage(null)}
           >
             {/* Navigation Arrows */}
@@ -337,7 +337,7 @@ export function ImageGallery() {
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
               src={selectedImage.src}
               alt={selectedImage.alt}
-              className="max-w-full max-h-[90vh] object-contain rounded-lg"
+              className="max-w-full max-h-[90vh] object-contain rounded-none"
               onClick={(e) => e.stopPropagation()}
             />
           </motion.div>
